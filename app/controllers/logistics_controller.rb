@@ -1,0 +1,2 @@
+class LogisticsController < ApplicationController
+end

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tarottechno</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <link href='https://fonts.googleapis.com/css?family=Fugaz+One|Audiowide|Ceviche+One|Goudy+Bookletter+1911|Fredericka+the+Great|Life+Savers:700|Rye|Paprika|Sarina|New+Rocker|Milonga|MedievalSharp|Pirata+One|Akronim|Astloch:700|Faster+One|Metal+Mania' rel='stylesheet' type='text/css'>
+  <% @font = ['Fugaz+One', 'Audiowide', 'Ceviche+One', 'Goudy+Bookletter+1911', 'Fredericka+the+Great','Life+Savers:700', 'Rye', 'Paprika', 'Sarina', 'New+Rocker', 'Milonga', 'MedievalSharp', 'Pirata+One', 'Akronim', 'Astloch:700', 'Faster+One', 'Metal+Mania'].sample %>
+  <style>
+  body {
+    font-family: <%= @font %>;
+  }
+  </style>
+</head>
+<body>
+
+<%= yield %>
+
+</body>
+</html>
