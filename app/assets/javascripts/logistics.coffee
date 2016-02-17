@@ -1,3 +1,8 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
+$(document).bind 'page:update', ->
+  console.log("The page load handler fired.")
+  $('#join_mail_list').click ->
+    console.log("The click handler fired.")
+    $.ajax '/add_me_to_mail_list',
+      data:
+        email: $('#mail_list_email_address').val()
+      type: 'POST'

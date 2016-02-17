@@ -25,3 +25,9 @@
 <p>
   <%= link_to 'facebook.com<span class="white">/</span>tarottechno'.html_safe, 'http://facebook.com/tarottechno', :class => ['green', 'blue', 'purple', 'orange', 'red'].sample %>
 </p>
+
+<p>
+  Mail List
+  <%= text_field_tag :email, nil, :id => 'mail_list_email_address' %>
+  <%= link_to "yes", '#darkness_wins!', :id => 'join_mail_list' %>
+</p>

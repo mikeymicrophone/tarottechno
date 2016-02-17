@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'logistics#index'
 
+  post 'add_me_to_mail_list' => 'mailing#add_name'
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
