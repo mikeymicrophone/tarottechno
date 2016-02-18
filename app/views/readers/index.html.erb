@@ -1,0 +1,10 @@
+<% @readers.each do |reader| %>
+  <%= div_for reader do %>
+    <%= reader.moniker %>|<%= reader.email %>
+    <% if reader.active? %>
+      <%= link_to 'deactivate', deactivate_reader_path(reader), :method => :put %>
+    <% else %>
+      <%= link_to 'activate', activate_reader_path(reader), :method => :put %>
+    <% end %>
+  <% end %>
+<% end %>

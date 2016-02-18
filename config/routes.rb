@@ -6,6 +6,13 @@ Rails.application.routes.draw do
   resources :decks
   resources :traditions
   resources :logistics
+  
+  resources :readers, :only => [:index] do
+    member do
+      put :activate
+      put :deactivate
+    end
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
