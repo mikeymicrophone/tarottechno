@@ -1,0 +1,26 @@
+<h1>Listing Decks</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Tradition</th>
+      <th>Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @decks.each do |deck| %>
+      <tr>
+        <td><%= deck.tradition.name %></td>
+        <td><%= deck.name %></td>
+        <td><%= link_to 'Show', deck %></td>
+        <td><%= link_to 'Edit', edit_deck_path(deck) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Deck', new_deck_path %>

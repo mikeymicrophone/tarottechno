@@ -1,0 +1,26 @@
+<h1>Listing Suits</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Symbol</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @suits.each do |suit| %>
+      <tr>
+        <td><%= suit.name %></td>
+        <td><%= suit.symbol %></td>
+        <td><%= link_to 'Show', suit %></td>
+        <td><%= link_to 'Edit', edit_suit_path(suit) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Suit', new_suit_path %>

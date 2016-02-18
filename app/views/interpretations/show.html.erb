@@ -1,0 +1,22 @@
+<p>
+  <strong>Card:</strong>
+  <%= @interpretation.card.name %>
+</p>
+
+<p>
+  <strong>Phrase:</strong>
+  <%= @interpretation.phrase %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @interpretation.description %>
+</p>
+
+<p>
+  <strong>Reader:</strong>
+  <%= @interpretation.reader.moniker %>
+</p>
+
+<%= link_to 'Edit', edit_interpretation_path(@interpretation) %> |
+<%= link_to 'Back', interpretations_path %>

@@ -1,0 +1,2 @@
+module TraditionsHelper
+end

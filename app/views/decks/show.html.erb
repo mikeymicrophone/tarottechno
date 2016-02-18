@@ -1,0 +1,12 @@
+<p>
+  <strong>Tradition:</strong>
+  <%= @deck.tradition.name %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @deck.name %>
+</p>
+
+<%= link_to 'Edit', edit_deck_path(@deck) %> |
+<%= link_to 'Back', decks_path %>

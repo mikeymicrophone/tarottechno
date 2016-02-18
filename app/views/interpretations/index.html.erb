@@ -1,0 +1,32 @@
+
+
+<h1>Listing Interpretations</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Card</th>
+      <th>Phrase</th>
+      <th>Description</th>
+      <th>Reader</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @interpretations.each do |interpretation| %>
+      <tr>
+        <td><%= interpretation.card.name %></td>
+        <td><%= interpretation.phrase %></td>
+        <td><%= interpretation.description %></td>
+        <td><%= interpretation.reader.moniker %></td>
+        <td><%= link_to 'Show', interpretation %></td>
+        <td><%= link_to 'Edit', edit_interpretation_path(interpretation) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Interpretation', new_interpretation_path %>

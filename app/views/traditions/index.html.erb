@@ -1,0 +1,24 @@
+<h1>Listing Traditions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @traditions.each do |tradition| %>
+      <tr>
+        <td><%= tradition.name %></td>
+        <td><%= link_to 'Show', tradition %></td>
+        <td><%= link_to 'Edit', edit_tradition_path(tradition) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Tradition', new_tradition_path %>

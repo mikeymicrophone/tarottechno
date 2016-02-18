@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  devise_for :readers
+  resources :interpretations
+  resources :suits
+  resources :cards
+  resources :decks
+  resources :traditions
   resources :logistics
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

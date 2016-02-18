@@ -1,0 +1,22 @@
+<p>
+  <strong>Deck:</strong>
+  <%= @card.deck.name %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @card.name %>
+</p>
+
+<p>
+  <strong>Suit:</strong>
+  <%= @card.suit.name %>
+</p>
+
+<p>
+  <strong>Order:</strong>
+  <%= @card.order %>
+</p>
+
+<%= link_to 'Edit', edit_card_path(@card) %> |
+<%= link_to 'Back', cards_path %>
