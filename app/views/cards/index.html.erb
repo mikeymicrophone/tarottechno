@@ -16,9 +16,9 @@
   <tbody>
     <% @cards.each do |card| %>
       <tr>
-        <td><%= card.deck %></td>
+        <td><%= card.deck.name %></td>
         <td><%= card.name %></td>
-        <td><%= card.suit %></td>
+        <td><%= card.suit.name %></td>
         <td><%= card.order %></td>
         <td><%= link_to 'Show', card %></td>
         <td><%= link_to 'Edit', edit_card_path(card) %></td>
