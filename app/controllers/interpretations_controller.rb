@@ -1,5 +1,5 @@
 class InterpretationsController < ApplicationController
-  before_action :set_interpretation, only: [:show, :edit, :update, :destroy]
+  before_action :set_interpretation, only: [:show, :rewrite, :edit, :update, :destroy]
 
   # GET /interpretations
   # GET /interpretations.json
@@ -15,6 +15,9 @@ class InterpretationsController < ApplicationController
   # GET /interpretations/new
   def new
     @interpretation = Interpretation.new
+  end
+  
+  def rewrite
   end
 
   # GET /interpretations/1/edit

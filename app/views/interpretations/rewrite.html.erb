@@ -1,0 +1,24 @@
+<div>
+  <strong>
+    <%= @interpretation.phrase %>
+  </strong>
+</div>
+<em>
+  <%= @interpretation.description %>
+</em>
+
+<div>
+  <strong>
+    <%= @interpretation.card.name %>
+  </strong>
+</div>
+
+<%= form_for Interpretation.new(card_id: @interpretation.card_id) do |f| %>
+  <%= f.hidden_field :card_id %>
+  <%= f.text_field :phrase, :placeholder => 'phrase' %>
+  <br>
+  <%= f.text_area :description, :placeholder => 'description' %>
+  <br>
+  <%= f.submit "Reinterpreted!" %>
+  <%= f.hidden_field :reader_id, value: current_reader.id %>
+<% end %>

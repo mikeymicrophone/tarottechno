@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   devise_for :readers
-  resources :interpretations
+  resources :interpretations do
+    member do
+      get :rewrite
+    end
+  end
   resources :suits
   resources :cards
   resources :decks
