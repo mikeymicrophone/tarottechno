@@ -4,7 +4,7 @@ class CardsController < ApplicationController
   # GET /cards
   # GET /cards.json
   def index
-    @cards = Card.all
+    @cards = Card.select_with_criteria(params, :suit, :deck, :tradition)
   end
 
   # GET /cards/1
@@ -28,7 +28,7 @@ class CardsController < ApplicationController
 
     respond_to do |format|
       if @card.save
-        format.html { redirect_to @card, notice: 'Card was successfully created.' }
+        format.html { redirect_to @card, notice: 'Card was created.' }
         format.json { render :show, status: :created, location: @card }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class CardsController < ApplicationController
   def update
     respond_to do |format|
       if @card.update(card_params)
-        format.html { redirect_to @card, notice: 'Card was successfully updated.' }
+        format.html { redirect_to @card, notice: 'Card was updated.' }
         format.json { render :show, status: :ok, location: @card }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class CardsController < ApplicationController
   def destroy
     @card.destroy
     respond_to do |format|
-      format.html { redirect_to cards_url, notice: 'Card was successfully destroyed.' }
+      format.html { redirect_to cards_url, notice: 'Card was destroyed.' }
       format.json { head :no_content }
     end
   end

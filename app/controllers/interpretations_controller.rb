@@ -31,7 +31,7 @@ class InterpretationsController < ApplicationController
 
     respond_to do |format|
       if @interpretation.save
-        format.html { redirect_to @interpretation, notice: 'Interpretation was successfully created.' }
+        format.html { redirect_to @interpretation, notice: 'Interpretation was created.' }
         format.json { render :show, status: :created, location: @interpretation }
       else
         format.html { render :new }
@@ -45,7 +45,7 @@ class InterpretationsController < ApplicationController
   def update
     respond_to do |format|
       if @interpretation.update(interpretation_params)
-        format.html { redirect_to @interpretation, notice: 'Interpretation was successfully updated.' }
+        format.html { redirect_to @interpretation, notice: 'Interpretation was updated.' }
         format.json { render :show, status: :ok, location: @interpretation }
       else
         format.html { render :edit }
@@ -59,7 +59,7 @@ class InterpretationsController < ApplicationController
   def destroy
     @interpretation.destroy
     respond_to do |format|
-      format.html { redirect_to interpretations_url, notice: 'Interpretation was successfully destroyed.' }
+      format.html { redirect_to interpretations_url, notice: 'Interpretation was destroyed.' }
       format.json { head :no_content }
     end
   end

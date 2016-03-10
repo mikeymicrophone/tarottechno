@@ -21,8 +21,7 @@
         <td><%= card.suit.name %></td>
         <td><%= card.order %></td>
         <td><%= link_to 'inspect->/', card %></td>
-        <td><%= link_to 'Edit', edit_card_path(card) %></td>
-        <td><%= link_to 'Destroy', card, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'interfere', edit_card_path(card) %></td>
       </tr>
     <% end %>
   </tbody>

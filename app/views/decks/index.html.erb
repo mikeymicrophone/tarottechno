@@ -14,8 +14,12 @@
       <tr>
         <td><%= deck.tradition.name %></td>
         <td><%= deck.name %></td>
+        <td><%= plural_nest deck, 'suit' %></td>
+        <td><%= plural_nest deck, 'card' %></td>
+        <td><%= plural_nest deck, 'interpretation' %></td>
+        <td><%= plural_nest deck, 'reader' %></td>
         <td><%= link_to 'inspect->/', deck %></td>
-        <td><%= link_to 'Edit', edit_deck_path(deck) %></td>
+        <td><%= link_to 'interfere', edit_deck_path(deck) %></td>
       </tr>
     <% end %>
   </tbody>

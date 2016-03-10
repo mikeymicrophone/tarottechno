@@ -4,7 +4,7 @@ class DecksController < ApplicationController
   # GET /decks
   # GET /decks.json
   def index
-    @decks = Deck.all
+    @decks = Deck.select_with_criteria(params, :tradition, :suit)
   end
 
   # GET /decks/1
@@ -28,7 +28,7 @@ class DecksController < ApplicationController
 
     respond_to do |format|
       if @deck.save
-        format.html { redirect_to @deck, notice: 'Deck was successfully created.' }
+        format.html { redirect_to @deck, notice: 'Deck was created.' }
         format.json { render :show, status: :created, location: @deck }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class DecksController < ApplicationController
   def update
     respond_to do |format|
       if @deck.update(deck_params)
-        format.html { redirect_to @deck, notice: 'Deck was successfully updated.' }
+        format.html { redirect_to @deck, notice: 'Deck was updated.' }
         format.json { render :show, status: :ok, location: @deck }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class DecksController < ApplicationController
   def destroy
     @deck.destroy
     respond_to do |format|
-      format.html { redirect_to decks_url, notice: 'Deck was successfully destroyed.' }
+      format.html { redirect_to decks_url, notice: 'Deck was destroyed.' }
       format.json { head :no_content }
     end
   end

@@ -4,7 +4,7 @@ class SuitsController < ApplicationController
   # GET /suits
   # GET /suits.json
   def index
-    @suits = Suit.all
+    @suits = Suit.select_with_criteria params, :tradition, :deck, :reader
   end
 
   # GET /suits/1
@@ -28,7 +28,7 @@ class SuitsController < ApplicationController
 
     respond_to do |format|
       if @suit.save
-        format.html { redirect_to @suit, notice: 'Suit was successfully created.' }
+        format.html { redirect_to @suit, notice: 'Suit was created.' }
         format.json { render :show, status: :created, location: @suit }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class SuitsController < ApplicationController
   def update
     respond_to do |format|
       if @suit.update(suit_params)
-        format.html { redirect_to @suit, notice: 'Suit was successfully updated.' }
+        format.html { redirect_to @suit, notice: 'Suit was updated.' }
         format.json { render :show, status: :ok, location: @suit }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class SuitsController < ApplicationController
   def destroy
     @suit.destroy
     respond_to do |format|
-      format.html { redirect_to suits_url, notice: 'Suit was successfully destroyed.' }
+      format.html { redirect_to suits_url, notice: 'Suit was destroyed.' }
       format.json { head :no_content }
     end
   end

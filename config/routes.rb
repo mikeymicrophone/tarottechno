@@ -5,10 +5,25 @@ Rails.application.routes.draw do
       get :rewrite
     end
   end
-  resources :suits
+  resources :suits do
+    resources :cards
+    resources :decks
+    resources :interpretations
+    resources :readers
+  end
   resources :cards
-  resources :decks
-  resources :traditions
+  resources :decks do
+    resources :cards
+    resources :suits
+    resources :interpretations
+    resources :readers
+  end
+  resources :traditions do
+    resources :decks
+    resources :suits
+    resources :cards
+    resources :interpretations
+  end
   resources :logistics
   
   resources :readers, :only => [:index] do

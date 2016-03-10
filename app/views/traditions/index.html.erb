@@ -12,8 +12,12 @@
     <% @traditions.each do |tradition| %>
       <tr>
         <td><%= tradition.name %></td>
+        <td><%= plural_nest tradition, 'deck' %></td>
+        <td><%= plural_nest tradition, 'card' %></td>
+        <td><%= plural_nest tradition, 'suit' %></td>
+        <td><%= plural_nest tradition, 'interpretation' %></td>
         <td><%= link_to 'inspect->/', tradition %></td>
-        <td><%= link_to 'Edit', edit_tradition_path(tradition) %></td>
+        <td><%= link_to 'interfere', edit_tradition_path(tradition) %></td>
       </tr>
     <% end %>
   </tbody>

@@ -28,7 +28,7 @@ class TraditionsController < ApplicationController
 
     respond_to do |format|
       if @tradition.save
-        format.html { redirect_to @tradition, notice: 'Tradition was successfully created.' }
+        format.html { redirect_to @tradition, notice: 'Tradition was created.' }
         format.json { render :show, status: :created, location: @tradition }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class TraditionsController < ApplicationController
   def update
     respond_to do |format|
       if @tradition.update(tradition_params)
-        format.html { redirect_to @tradition, notice: 'Tradition was successfully updated.' }
+        format.html { redirect_to @tradition, notice: 'Tradition was updated.' }
         format.json { render :show, status: :ok, location: @tradition }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class TraditionsController < ApplicationController
   def destroy
     @tradition.destroy
     respond_to do |format|
-      format.html { redirect_to traditions_url, notice: 'Tradition was successfully destroyed.' }
+      format.html { redirect_to traditions_url, notice: 'Tradition was destroyed.' }
       format.json { head :no_content }
     end
   end

@@ -14,8 +14,12 @@
       <tr>
         <td><%= suit.name %></td>
         <td><%= suit.symbol %></td>
+        <td><%= plural_nest suit, 'card' %></td>
+        <td><%= plural_nest suit, 'deck' %></td>
+        <td><%= plural_nest suit, 'interpretation' %></td>
+        <td><%= plural_nest suit, 'reader' %></td>
         <td><%= link_to 'inspect->/', suit %></td>
-        <td><%= link_to 'Edit', edit_suit_path(suit) %></td>
+        <td><%= link_to 'interfere', edit_suit_path(suit) %></td>
       </tr>
     <% end %>
   </tbody>

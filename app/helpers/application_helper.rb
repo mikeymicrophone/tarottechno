@@ -1,5 +1,9 @@
 module ApplicationHelper
 
+  def plural_nest objectos, groupus
+    link_to pluralize(objectos.send(groupus.pluralize).count, groupus), send("#{objectos.class.name.downcase}_#{groupus.pluralize}_path", objectos)
+  end
+
   def google_analytics
     "<script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

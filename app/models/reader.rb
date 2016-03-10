@@ -1,6 +1,10 @@
 class Reader < ActiveRecord::Base
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
+  has_many :interpretations
+  has_many :cards, :through => :interpretations
+  has_many :suits, :through => :cards
+  has_many :decks, :through => :cards
+  has_many :traditions, :through => :decks
+  
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
          

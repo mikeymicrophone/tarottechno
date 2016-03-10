@@ -21,7 +21,7 @@
   </div>
   <div class="field">
     <%= f.label :suit_id %><br>
-    <%= f.select :suit_id, options_from_collection_for_select(Suit.all, :id, :name, @card.suit_id) %>
+    <%= f.select :suit_id, options_from_collection_for_select(Suit.all, :id, :name, @card.suit_id), :include_blank => true %>
   </div>
   <div class="field">
     <%= f.label :order %><br>
