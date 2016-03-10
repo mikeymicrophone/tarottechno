@@ -9,7 +9,7 @@ module CriticalPath
     when 0
       all
     when 1
-      send *criteria.first
+      send(*criteria.first).uniq
     end
   end
 end
