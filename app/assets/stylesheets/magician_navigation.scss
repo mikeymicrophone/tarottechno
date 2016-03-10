@@ -1,0 +1,18 @@
+body.back_room {
+  font-family: 'Tribal Two';
+}
+
+#magician_navigation {
+  
+  li {
+    display: inline-block;
+    list-style: none;
+    padding-right: 7px;
+    
+    a {
+      font-family: 'squared display';
+      font-size: 1.1em;
+      text-decoration: none;
+    }
+  }
+}

@@ -1,6 +1,6 @@
 
 
-<h1>Listing Cards</h1>
+<h1>a List of Cards</h1>
 
 <table>
   <thead>
@@ -20,7 +20,7 @@
         <td><%= card.name %></td>
         <td><%= card.suit.name %></td>
         <td><%= card.order %></td>
-        <td><%= link_to 'Show', card %></td>
+        <td><%= link_to 'inspect->/', card %></td>
         <td><%= link_to 'Edit', edit_card_path(card) %></td>
         <td><%= link_to 'Destroy', card, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

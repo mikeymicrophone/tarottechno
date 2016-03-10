@@ -1,6 +1,6 @@
 
 
-<h1>Listing Interpretations</h1>
+<h1>a List of Interpretations</h1>
 
 <table>
   <thead>
@@ -19,9 +19,9 @@
         <td><%= interpretation.card.name %></td>
         <td><%= interpretation.phrase %></td>
         <td><%= interpretation.description %></td>
-        <td><%= interpretation.reader.moniker %></td>
-        <td><%= link_to 'Show', interpretation %></td>
-        <td><%= link_to 'Rewrite', rewrite_interpretation_path(interpretation) %></td>
+        <td><%= interpretation.reader_moniker %></td>
+        <td><%= link_to 'inspect->/', interpretation %></td>
+        <td><%= link_to 're-write', rewrite_interpretation_path(interpretation) %></td>
       </tr>
     <% end %>
   </tbody>
