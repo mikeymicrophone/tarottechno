@@ -1,11 +1,10 @@
-<div>
-  <strong>
-    <%= @interpretation.phrase %>
-  </strong>
-</div>
-<em>
+<%= div_for @interpretation, :existing_name_of do %>
+  <%= @interpretation.phrase %>
+<% end %>
+
+<%= div_for @interpretation, :existing_text_of do %>
   <%= @interpretation.description %>
-</em>
+<% end %>
 
 <div>
   <strong>
