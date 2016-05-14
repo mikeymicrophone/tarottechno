@@ -9,7 +9,10 @@ module TraditionsHelper
         navigation_to_resource('decks') +
         navigation_to_resource('suits') +
         navigation_to_resource('cards') +
-        navigation_to_resource('interpretations')
+        navigation_to_resource('interpretations') +
+        navigation_to_resource('spreads') +
+        navigation_to_resource('positions') +
+        navigation_to_resource('readers')
       end
     end
   end

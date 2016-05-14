@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :positions
+  resources :spreads
   resources :readings
   resources :events
   devise_for :readers

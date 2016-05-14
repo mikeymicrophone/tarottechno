@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160514214500) do
+ActiveRecord::Schema.define(version: 20160514221331) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -66,6 +66,16 @@ ActiveRecord::Schema.define(version: 20160514214500) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "positions", force: :cascade do |t|
+    t.integer  "spread_id"
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "positions", ["spread_id"], name: "index_positions_on_spread_id", using: :btree
+
   create_table "readers", force: :cascade do |t|
     t.string   "moniker"
     t.string   "first_name"
@@ -104,6 +114,16 @@ ActiveRecord::Schema.define(version: 20160514214500) do
   add_index "readings", ["event_id"], name: "index_readings_on_event_id", using: :btree
   add_index "readings", ["reader_id"], name: "index_readings_on_reader_id", using: :btree
 
+  create_table "spreads", force: :cascade do |t|
+    t.integer  "tradition_id"
+    t.text     "description"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.string   "name"
+  end
+
+  add_index "spreads", ["tradition_id"], name: "index_spreads_on_tradition_id", using: :btree
+
   create_table "suits", force: :cascade do |t|
     t.string   "name"
     t.string   "symbol"
@@ -120,6 +140,8 @@ ActiveRecord::Schema.define(version: 20160514214500) do
   add_foreign_key "cards", "decks"
   add_foreign_key "decks", "traditions"
   add_foreign_key "interpretations", "cards"
+  add_foreign_key "positions", "spreads"
   add_foreign_key "readings", "events"
   add_foreign_key "readings", "readers"
+  add_foreign_key "spreads", "traditions"
 end

@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @spread.name %>
+</p>
+
+<p>
+  <strong>Tradition:</strong>
+  <%= @spread.tradition.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @spread.description %>
+</p>
+
+<%= link_to 'Edit', edit_spread_path(@spread) %> |
+<%= link_to 'Back', spreads_path %>
