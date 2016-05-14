@@ -19,6 +19,8 @@
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
   <%= yield %>
+  
+  <%= link_to 'I finished', destroy_reader_session_path, :method => :delete %>
 
   <%= google_analytics %>
 </body>

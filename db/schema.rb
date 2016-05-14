@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160218045844) do
+ActiveRecord::Schema.define(version: 20160514214500) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,16 @@ ActiveRecord::Schema.define(version: 20160218045844) do
   end
 
   add_index "decks", ["tradition_id"], name: "index_decks_on_tradition_id", using: :btree
+
+  create_table "events", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.string   "location"
+    t.string   "facebook_url"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
 
   create_table "interpretations", force: :cascade do |t|
     t.integer  "card_id"
@@ -83,6 +93,17 @@ ActiveRecord::Schema.define(version: 20160218045844) do
   add_index "readers", ["email"], name: "index_readers_on_email", unique: true, using: :btree
   add_index "readers", ["reset_password_token"], name: "index_readers_on_reset_password_token", unique: true, using: :btree
 
+  create_table "readings", force: :cascade do |t|
+    t.integer  "event_id"
+    t.integer  "reader_id"
+    t.integer  "subject_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "readings", ["event_id"], name: "index_readings_on_event_id", using: :btree
+  add_index "readings", ["reader_id"], name: "index_readings_on_reader_id", using: :btree
+
   create_table "suits", force: :cascade do |t|
     t.string   "name"
     t.string   "symbol"
@@ -99,4 +120,6 @@ ActiveRecord::Schema.define(version: 20160218045844) do
   add_foreign_key "cards", "decks"
   add_foreign_key "decks", "traditions"
   add_foreign_key "interpretations", "cards"
+  add_foreign_key "readings", "events"
+  add_foreign_key "readings", "readers"
 end

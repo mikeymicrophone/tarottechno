@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Event:</strong>
+  <%= @reading.event.name %>
+</p>
+
+<p>
+  <strong>Reader:</strong>
+  <%= @reading.reader.moniker %>
+</p>
+
+<p>
+  <strong>Subject:</strong>
+  <%= @reading.subject.moniker %>
+</p>
+
+<%= link_to 'Edit', edit_reading_path(@reading) %> |
+<%= link_to 'Back', readings_path %>

@@ -1,0 +1,6 @@
+<% @events.each do |event| %>
+  <%= div_for event do %>
+    <%= link_to event.name, event %>
+  <% end %>
+<% end %>
+<%= link_to 'Add Event', new_event_path %>

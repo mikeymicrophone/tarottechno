@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :readings
+  resources :events
   devise_for :readers
   resources :interpretations do
     member do
