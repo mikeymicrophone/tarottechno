@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Appearances</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Reading</th>
+      <th>Card</th>
+      <th>Position</th>
+      <th>Description</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @appearances.each do |appearance| %>
+      <tr>
+        <td><%= appearance.reading %></td>
+        <td><%= appearance.card %></td>
+        <td><%= appearance.position %></td>
+        <td><%= appearance.description %></td>
+        <td><%= link_to 'Show', appearance %></td>
+        <td><%= link_to 'Edit', edit_appearance_path(appearance) %></td>
+        <td><%= link_to 'Destroy', appearance, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Appearance', new_appearance_path %>

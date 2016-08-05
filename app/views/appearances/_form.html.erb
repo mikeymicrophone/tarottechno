@@ -1,0 +1,33 @@
+<%= form_for(@appearance) do |f| %>
+  <% if @appearance.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@appearance.errors.count, "error") %> prohibited this appearance from being saved:</h2>
+
+      <ul>
+      <% @appearance.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :reading_id %><br>
+    <%= f.select :reading_id, options_from_collection_for_select(Reading.all, :id, :name, @appearance.reading_id), :include_blank => true %>
+  </div>
+  <div class="field">
+    <%= f.label :card_id %><br>
+    <%= f.select :card_id, options_from_collection_for_select(Card.all, :id, :name, @appearance.card_id), :include_blank => true %>
+  </div>
+  <div class="field">
+    <%= f.label :position_id %><br>
+    <%= f.select :position_id, options_from_collection_for_select(Position.all, :id, :name, @appearance.position_id), :include_blank => true %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

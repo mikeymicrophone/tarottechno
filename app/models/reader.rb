@@ -11,4 +11,8 @@ class Reader < ActiveRecord::Base
   def active_for_authentication?
     super && active?
   end
+  
+  def name
+    moniker
+  end
 end

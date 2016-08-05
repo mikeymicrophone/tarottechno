@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Reading:</strong>
+  <%= @appearance.reading %>
+</p>
+
+<p>
+  <strong>Card:</strong>
+  <%= @appearance.card %>
+</p>
+
+<p>
+  <strong>Position:</strong>
+  <%= @appearance.position %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @appearance.description %>
+</p>
+
+<%= link_to 'Edit', edit_appearance_path(@appearance) %> |
+<%= link_to 'Back', appearances_path %>

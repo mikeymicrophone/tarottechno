@@ -16,9 +16,9 @@
   <tbody>
     <% @cards.each do |card| %>
       <tr>
-        <td><%= card.deck.name %></td>
+        <td><%= card.deck.try(:name) %></td>
         <td><%= card.name %></td>
-        <td><%= card.suit.name %></td>
+        <td><%= card.suit.try(:name) %></td>
         <td><%= card.order %></td>
         <td><%= link_to 'inspect->/', card %></td>
         <td><%= link_to 'interfere', edit_card_path(card) %></td>
