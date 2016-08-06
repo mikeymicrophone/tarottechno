@@ -11,6 +11,10 @@ class SuitsController < ApplicationController
   # GET /suits/1.json
   def show
   end
+  
+  def card_names
+    @cards = @suit.cards
+  end
 
   # GET /suits/new
   def new

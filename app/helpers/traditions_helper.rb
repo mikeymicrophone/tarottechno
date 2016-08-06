@@ -12,7 +12,11 @@ module TraditionsHelper
         navigation_to_resource('interpretations') +
         navigation_to_resource('spreads') +
         navigation_to_resource('positions') +
-        navigation_to_resource('readers')
+        navigation_to_resource('readers') +
+        navigation_to_resource('events') +
+        navigation_to_resource('readings') +
+        navigation_to_resource('positions') +
+        navigation_to_resource('appearances')
       end
     end
   end

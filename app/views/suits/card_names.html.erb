@@ -1,0 +1,3 @@
+<% @cards.each do |card| %>
+  <%= card.interpretations.last.try(:phrase) %>
+<% end %>

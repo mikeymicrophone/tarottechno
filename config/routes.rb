@@ -15,6 +15,9 @@ Rails.application.routes.draw do
     resources :decks
     resources :interpretations
     resources :readers
+    member do
+      get :card_names
+    end
   end
   resources :cards
   resources :decks do

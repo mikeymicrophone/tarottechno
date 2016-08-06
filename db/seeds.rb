@@ -47,3 +47,11 @@ end
     order = order + 1
   end
 end
+
+@reader = Reader.create :email => 'bibbulous@example.com', :password => 'password', :password_confirmation => 'password', :active => true
+@person = Reader.create :email => 'carrabington@example.com', :password => 'password', :password_confirmation => 'password', :active => true
+
+@event = Event.create :name => 'Song n Dance', :start_time => DateTime.new(2016, 8, 5, 19, 30, 0), :end_time => DateTime.new(2016, 8, 5, 23, 30, 0), :location => 'Garden'
+
+@reading = Reading.create :event => @event, :reader => @reader, :subject => @person
+
