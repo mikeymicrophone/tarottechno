@@ -16,6 +16,10 @@
     <%= f.select :card_id, options_from_collection_for_select(Card.all, :id, :name, @interpretation.card_id) %>
   </div>
   <div class="field">
+    <%= f.label :appearance_id %><br>
+    <%= f.select :appearance_id, options_from_collection_for_select(Appearance.all, :id, :name, @interpretation.appearance_id), :include_blank => true %>
+  </div>
+  <div class="field">
     <%= f.label :phrase %><br>
     <%= f.text_field :phrase %>
   </div>

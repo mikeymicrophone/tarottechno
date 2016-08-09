@@ -6,7 +6,7 @@ class Reader < ActiveRecord::Base
   has_many :traditions, -> { uniq }, :through => :decks
   
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+         :recoverable, :rememberable, :trackable
          
   def active_for_authentication?
     super && active?

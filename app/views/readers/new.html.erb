@@ -1,0 +1,5 @@
+<%= form_for @reader, :url => name_readers_path do |form| %>
+  <%= form.label :moniker %>
+  <%= form.text_field :moniker %>
+  <%= form.submit 'Save this reader' %>
+<% end %>

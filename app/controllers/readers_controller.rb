@@ -14,6 +14,15 @@ class ReadersController < ApplicationController
     redirect_to readers_path
   end
   
+  def new
+    @reader = Reader.new
+  end
+  
+  def name
+    @reader = Reader.create reader_params
+    redirect_to readers_path
+  end
+  
   def activate
     @reader = Reader.find params[:id]
     @reader.update_attribute :active, true
@@ -24,5 +33,11 @@ class ReadersController < ApplicationController
     @reader = Reader.find params[:id]
     @reader.update_attribute :active, false
     redirect_to :action => :index
+  end
+  
+  private
+  
+  def reader_params
+    params.require(:reader).permit(:moniker)
   end
 end

@@ -34,7 +34,10 @@ Rails.application.routes.draw do
   end
   resources :logistics
   
-  resources :readers, :only => [:index, :edit, :update] do
+  resources :readers, :only => [:index, :edit, :update, :new] do
+    collection do
+      post :name
+    end
     member do
       put :activate
       put :deactivate

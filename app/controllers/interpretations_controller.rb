@@ -72,6 +72,6 @@ class InterpretationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def interpretation_params
-      params.require(:interpretation).permit(:card_id, :phrase, :description, :reader_id)
+      params.require(:interpretation).permit(:card_id, :appearance_id, :phrase, :description, :reader_id)
     end
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160514222352) do
+ActiveRecord::Schema.define(version: 20160809061014) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -65,8 +65,9 @@ ActiveRecord::Schema.define(version: 20160514222352) do
     t.string   "phrase"
     t.text     "description"
     t.integer  "reader_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.integer  "appearance_id"
   end
 
   add_index "interpretations", ["card_id"], name: "index_interpretations_on_card_id", using: :btree
