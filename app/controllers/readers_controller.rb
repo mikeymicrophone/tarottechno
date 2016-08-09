@@ -3,6 +3,17 @@ class ReadersController < ApplicationController
     @readers = Reader.all
   end
   
+  def edit
+    @reader = current_reader
+  end
+  
+  def update
+    @reader = current_reader
+    @reader.moniker = params[:reader][:moniker]
+    @reader.save
+    redirect_to readers_path
+  end
+  
   def activate
     @reader = Reader.find params[:id]
     @reader.update_attribute :active, true

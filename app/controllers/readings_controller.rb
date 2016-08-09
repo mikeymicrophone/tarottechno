@@ -28,7 +28,7 @@ class ReadingsController < ApplicationController
 
     respond_to do |format|
       if @reading.save
-        format.html { redirect_to @reading, notice: 'Reading was successfully created.' }
+        format.html { redirect_to @reading, notice: 'Begin the reading!' }
         format.json { render :show, status: :created, location: @reading }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class ReadingsController < ApplicationController
   def update
     respond_to do |format|
       if @reading.update(reading_params)
-        format.html { redirect_to @reading, notice: 'Reading was successfully updated.' }
+        format.html { redirect_to @reading, notice: 'This reading is updated.' }
         format.json { render :show, status: :ok, location: @reading }
       else
         format.html { render :edit }

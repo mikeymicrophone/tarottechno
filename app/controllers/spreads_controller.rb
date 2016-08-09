@@ -42,7 +42,7 @@ class SpreadsController < ApplicationController
   def update
     respond_to do |format|
       if @spread.update(spread_params)
-        format.html { redirect_to @spread, notice: 'Spread was successfully updated.' }
+        format.html { redirect_to @spread, notice: 'This spread is updated.' }
         format.json { render :show, status: :ok, location: @spread }
       else
         format.html { render :edit }

@@ -28,7 +28,7 @@ class AppearancesController < ApplicationController
 
     respond_to do |format|
       if @appearance.save
-        format.html { redirect_to @appearance, notice: 'Appearance was successfully created.' }
+        format.html { redirect_to @appearance, notice: 'Good.' }
         format.json { render :show, status: :created, location: @appearance }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class AppearancesController < ApplicationController
   def update
     respond_to do |format|
       if @appearance.update(appearance_params)
-        format.html { redirect_to @appearance, notice: 'Appearance was successfully updated.' }
+        format.html { redirect_to @appearance, notice: 'This appearance is updated.' }
         format.json { render :show, status: :ok, location: @appearance }
       else
         format.html { render :edit }

@@ -34,7 +34,7 @@ Rails.application.routes.draw do
   end
   resources :logistics
   
-  resources :readers, :only => [:index] do
+  resources :readers, :only => [:index, :edit, :update] do
     member do
       put :activate
       put :deactivate
