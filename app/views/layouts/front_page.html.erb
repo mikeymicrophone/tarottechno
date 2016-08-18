@@ -19,6 +19,9 @@
   <p class="alert"><%= alert %></p>
   <%= yield %>
 
+  <%= link_to "Register", new_reader_registration_path %><br>
+  <%= link_to "Sign In", new_reader_session_path %>
+
   <%= google_analytics %>
 </body>
 </html>
