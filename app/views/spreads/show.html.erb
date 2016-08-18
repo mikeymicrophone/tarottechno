@@ -13,5 +13,12 @@
   <%= @spread.description %>
 </p>
 
+<% @spread.positions.each do |position| %>
+  <%= div_for position do %>
+    <%= link_to position.name, position %>
+  <% end %>
+<% end %>
+<%= link_to 'Add Position', new_position_path(:spread_id => @spread.id) %>
+<br>
 <%= link_to 'Edit', edit_spread_path(@spread) %> |
 <%= link_to 'Back', spreads_path %>

@@ -14,7 +14,7 @@ class PositionsController < ApplicationController
 
   # GET /positions/new
   def new
-    @position = Position.new
+    @position = Position.new :spread_id => params[:spread_id]
   end
 
   # GET /positions/1/edit
