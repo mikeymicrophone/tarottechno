@@ -14,7 +14,7 @@
   <tbody>
     <% @spreads.each do |spread| %>
       <tr>
-        <td><%= spread.tradition %></td>
+        <td><%= spread.tradition.try(:name) %></td>
         <td><%= spread.description %></td>
         <td><%= link_to 'Show', spread %></td>
         <td><%= link_to 'Edit', edit_spread_path(spread) %></td>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160809061014) do
+ActiveRecord::Schema.define(version: 20160818040639) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -123,6 +123,8 @@ ActiveRecord::Schema.define(version: 20160809061014) do
     t.integer  "subject_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "deck_id"
+    t.integer  "spread_id"
   end
 
   add_index "readings", ["event_id"], name: "index_readings_on_event_id", using: :btree

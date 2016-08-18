@@ -28,7 +28,7 @@ class SpreadsController < ApplicationController
 
     respond_to do |format|
       if @spread.save
-        format.html { redirect_to @spread, notice: 'Spread was successfully created.' }
+        format.html { redirect_to @spread, notice: 'The spread was created.' }
         format.json { render :show, status: :created, location: @spread }
       else
         format.html { render :new }

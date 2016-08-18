@@ -5,6 +5,7 @@ class Deck < ActiveRecord::Base
   has_many :suits, -> { uniq }, :through => :cards
   has_many :interpretations, -> { uniq }, :through => :cards
   has_many :readers, -> { uniq }, :through => :interpretations
+  has_many :readings
   
   scope :regarding_tradition, lambda { |tradition| where :tradition_id => tradition }
   scope :regarding_suit, lambda { |suit| joins(:cards).where 'cards.suit_id' => suit }

@@ -13,5 +13,15 @@
   <%= @reading.subject.moniker %>
 </p>
 
+<p>
+  <strong>Deck:</strong>
+  <%= @reading.deck.try(:name) %>
+</p>
+
+<p>
+  <strong>Spread:</strong>
+  <%= @reading.spread.try(:name) %>
+</p>
+
 <%= link_to 'Edit', edit_reading_path(@reading) %> |
 <%= link_to 'Back', readings_path %>
