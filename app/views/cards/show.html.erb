@@ -1,22 +1,19 @@
 <p>
   <strong>Deck:</strong>
-  <%= @card.deck.name %>
+  <%= link_to @card.deck.name, @card.deck %>
 </p>
 
 <p>
-  <strong>Name:</strong>
   <%= @card.name %>
 </p>
 
 <p>
   <strong>Suit:</strong>
-  <%= @card.suit.name %>
+  <%= link_to @card.suit.name, @card.suit %>
 </p>
 
 <p>
-  <strong>Order:</strong>
-  <%= @card.order %>
+  <strong>Ordering:</strong>
+  <%= @card.ordering %>
 </p>
 
-<%= link_to 'interfere', edit_card_path(@card) %> |
-<%= link_to 'Back', cards_path %>

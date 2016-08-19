@@ -1,12 +1,19 @@
 <p>
   <strong>Tradition:</strong>
-  <%= @deck.tradition.name %>
+  <%= link_to @deck.tradition.name, @deck.tradition %>
 </p>
 
 <p>
-  <strong>Name:</strong>
   <%= @deck.name %>
 </p>
 
-<%= link_to 'interfere', edit_deck_path(@deck) %> |
-<%= link_to 'Back', decks_path %>
+<%= content_tag_for :header, @deck, :cards do %>
+  ~cards~
+<% end %>
+<%= div_for @deck, :cards_in do %>
+  <% @deck.cards.sequenced.each do |card| %>
+    <%= div_for card do %>
+      <%= link_to card.name, card %>
+    <% end %>
+  <% end %>
+<% end %>

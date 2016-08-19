@@ -9,4 +9,7 @@ class Card < ActiveRecord::Base
   scope :regarding_suit, lambda { |suit| where :suit_id => suit }
   scope :regarding_deck, lambda { |deck| where :deck_id => deck }
   scope :regarding_tradition, lambda { |tradition| joins(:deck).where 'decks.tradition_id' => tradition }
+  scope :sequenced, lambda { order :ordering }
+  
+  acts_as_list :scope => :deck_id, :column => :ordering
 end

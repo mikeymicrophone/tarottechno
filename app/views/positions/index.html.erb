@@ -14,7 +14,7 @@
   <tbody>
     <% @positions.each do |position| %>
       <tr>
-        <td><%= position.spread.name %></td>
+        <td><%= link_to position.spread.name, position.spread %></td>
         <td><%= link_to position.name, position %></td>
         <td><%= position.description %></td>
       </tr>

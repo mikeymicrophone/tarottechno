@@ -3,23 +3,21 @@
 <table>
   <thead>
     <tr>
-      <th>Tradition</th>
       <th>Name</th>
-      <th colspan="3"></th>
+      <th>Tradition</th>
     </tr>
   </thead>
 
   <tbody>
     <% @decks.each do |deck| %>
       <tr>
+        <td><%= link_to deck.name, deck %></td>
         <td><%= deck.tradition.name %></td>
-        <td><%= deck.name %></td>
         <td><%= plural_nest deck, 'suit' %></td>
         <td><%= plural_nest deck, 'card' %></td>
         <td><%= plural_nest deck, 'interpretation' %></td>
         <td><%= plural_nest deck, 'reader' %></td>
         <td><%= link_to 'inspect->/', deck %></td>
-        <td><%= link_to 'interfere', edit_deck_path(deck) %></td>
       </tr>
     <% end %>
   </tbody>
