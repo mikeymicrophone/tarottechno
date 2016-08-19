@@ -10,7 +10,7 @@
 
 <p>
   <strong>Subject:</strong>
-  <%= @reading.subject.moniker %>
+  <%= @reading.querent.moniker %>
 </p>
 
 <p>
@@ -23,5 +23,19 @@
   <%= @reading.spread.try(:name) %>
 </p>
 
-<%= link_to 'Edit', edit_reading_path(@reading) %> |
-<%= link_to 'Back', readings_path %>
+<%= simple_list_of @reading, :appearances %>
+
+<% @reading.spread.positions.each do |position| %>
+  <%= div_for position, :in_current_reading do %>
+    <%= position.name %>:
+    <%= form_for Appearance.new do |appearance_form| %>
+      <%= appearance_form.select :card_id, options_from_collection_for_select(@reading.deck.cards.sequenced, :id, :name), :include_blank => true%>
+      <%= appearance_form.submit :save %>
+      <%= appearance_form.hidden_field :reading_id, :value => @reading.id %>
+      <%= appearance_form.hidden_field :position_id, :value => position.id %>
+    <% end %>
+  <% end %>
+<% end %>
+
+
+<%= link_to 'Edit', edit_reading_path(@reading) %>

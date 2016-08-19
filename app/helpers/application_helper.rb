@@ -3,6 +3,19 @@ module ApplicationHelper
   def plural_nest objectos, groupus
     link_to pluralize(objectos.send(groupus.pluralize).count, groupus), send("#{objectos.class.name.downcase}_#{groupus.pluralize}_path", objectos)
   end
+  
+  def simple_list_of parent, children
+    content_tag_for(:header, parent, children) do
+      "~#{children}~"
+    end +
+    div_for(parent, "#{children}_in") do
+      parent.send(children).map do |child|
+        div_for(child) do
+          link_to(child.name, child)
+        end
+      end.join.html_safe
+    end
+  end
 
   def google_analytics
     "<script>
