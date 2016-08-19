@@ -18,9 +18,12 @@
   <%= navigation_in_cards %>
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
+  
   <%= yield %>
   
-  <%= link_to 'I finished', destroy_reader_session_path, :method => :delete %>
+  <div id="logout">
+    <%= link_to 'I will log out.', destroy_reader_session_path, :method => :delete %>
+  </div>
 
   <%= google_analytics %>
 </body>

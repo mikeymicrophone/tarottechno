@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160818040639) do
+ActiveRecord::Schema.define(version: 20160818221451) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 20160818040639) do
     t.integer  "deck_id"
     t.string   "name"
     t.integer  "suit_id"
-    t.integer  "order"
+    t.integer  "ordering"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -86,6 +86,7 @@ ActiveRecord::Schema.define(version: 20160818040639) do
     t.text     "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "ordering"
   end
 
   add_index "positions", ["spread_id"], name: "index_positions_on_spread_id", using: :btree
@@ -120,7 +121,7 @@ ActiveRecord::Schema.define(version: 20160818040639) do
   create_table "readings", force: :cascade do |t|
     t.integer  "event_id"
     t.integer  "reader_id"
-    t.integer  "subject_id"
+    t.integer  "querent_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "deck_id"

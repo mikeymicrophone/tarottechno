@@ -69,6 +69,6 @@ class ReadingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def reading_params
-      params.require(:reading).permit(:event_id, :reader_id, :subject_id, :deck_id, :spread_id)
+      params.require(:reading).permit(:event_id, :reader_id, :querent_id, :deck_id, :spread_id)
     end
 end

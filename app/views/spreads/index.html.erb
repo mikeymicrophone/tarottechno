@@ -8,19 +8,15 @@
       <th>Name</th>
       <th>Tradition</th>
       <th>Description</th>
-      <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @spreads.each do |spread| %>
       <tr>
-        <td><%= spread.name %></td>
+        <td><%= link_to spread.name, spread %></td>
         <td><%= spread.tradition.try(:name) %></td>
         <td><%= spread.description %></td>
-        <td><%= link_to 'Show', spread %></td>
-        <td><%= link_to 'Edit', edit_spread_path(spread) %></td>
-        <td><%= link_to 'Destroy', spread, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

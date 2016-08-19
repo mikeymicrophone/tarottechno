@@ -1,9 +1,25 @@
-
-
 <p>
-  <strong>Name:</strong>
   <%= @tradition.name %>
 </p>
 
-<%= link_to 'interfere', edit_tradition_path(@tradition) %> |
-<%= link_to 'Back', traditions_path %>
+<%= content_tag_for :header, @tradition, :decks do %>
+  ~decks~
+<% end %>
+<%= div_for @tradition, :decks_for do %>
+  <% @tradition.decks.each do |deck| %>
+    <%= div_for deck do %>
+      <%= link_to deck.name, deck %>
+    <% end %>
+  <% end %>
+<% end %>
+
+<%= content_tag_for :header, @tradition, :spreads do %>
+  ~spreads~
+<% end %>
+<%= div_for @tradition, :spreads_for do %>
+  <% @tradition.spreads.each do |spread| %>
+    <%= div_for spread do %>
+      <%= link_to spread.name, spread %>
+    <% end %>
+  <% end %>
+<% end %>

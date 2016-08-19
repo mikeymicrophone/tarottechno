@@ -1,24 +1,21 @@
 <p>
-  <strong>Name:</strong>
   <%= @spread.name %>
 </p>
 
 <p>
-  <strong>Tradition:</strong>
-  <%= @spread.tradition.name %>
+  <%= link_to @spread.tradition.name, @spread.tradition %>
 </p>
 
 <p>
-  <strong>Description:</strong>
   <%= @spread.description %>
 </p>
 
-<% @spread.positions.each do |position| %>
+<%= content_tag_for :header, @spread, :positions do %>
+  ~card positions~
+<% end %>
+<% @spread.positions.sequenced.each do |position| %>
   <%= div_for position do %>
     <%= link_to position.name, position %>
   <% end %>
 <% end %>
 <%= link_to 'Add Position', new_position_path(:spread_id => @spread.id) %>
-<br>
-<%= link_to 'Edit', edit_spread_path(@spread) %> |
-<%= link_to 'Back', spreads_path %>
