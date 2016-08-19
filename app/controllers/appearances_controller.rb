@@ -29,6 +29,7 @@ class AppearancesController < ApplicationController
     respond_to do |format|
       if @appearance.save
         format.html { redirect_to @appearance, notice: 'Good.' }
+        format.js
         format.json { render :show, status: :created, location: @appearance }
       else
         format.html { render :new }
