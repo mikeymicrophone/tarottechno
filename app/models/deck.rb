@@ -1,4 +1,4 @@
-class Deck < ActiveRecord::Base
+class Deck < ApplicationRecord
   extend CriticalPath
   belongs_to :tradition
   has_many :cards, -> { uniq }

@@ -1,4 +1,4 @@
-class Interpretation < ActiveRecord::Base
+class Interpretation < ApplicationRecord
   belongs_to :card
   belongs_to :appearance
   belongs_to :reader

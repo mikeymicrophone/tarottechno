@@ -1,2 +1,2 @@
-class Logistic < ActiveRecord::Base
+class Logistic < ApplicationRecord
 end

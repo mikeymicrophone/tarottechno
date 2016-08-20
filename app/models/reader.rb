@@ -1,4 +1,4 @@
-class Reader < ActiveRecord::Base
+class Reader < ApplicationRecord
   has_many :interpretations
   has_many :cards, -> { uniq }, :through => :interpretations
   has_many :suits, -> { uniq }, :through => :cards

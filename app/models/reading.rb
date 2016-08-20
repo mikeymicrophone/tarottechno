@@ -1,4 +1,4 @@
-class Reading < ActiveRecord::Base
+class Reading < ApplicationRecord
   belongs_to :event
   belongs_to :reader
   belongs_to :querent, :class_name => 'Reader'

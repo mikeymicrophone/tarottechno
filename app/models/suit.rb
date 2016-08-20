@@ -1,4 +1,4 @@
-class Suit < ActiveRecord::Base
+class Suit < ApplicationRecord
   extend CriticalPath
   has_many :cards
   has_many :decks, -> { uniq }, :through => :cards

@@ -1,4 +1,4 @@
-class Tradition < ActiveRecord::Base
+class Tradition < ApplicationRecord
   has_many :decks
   has_many :spreads
   has_many :cards, -> { uniq }, :through => :decks

@@ -1,4 +1,4 @@
-class Appearance < ActiveRecord::Base
+class Appearance < ApplicationRecord
   belongs_to :reading
   has_one :reader, :through => :reading
   belongs_to :card

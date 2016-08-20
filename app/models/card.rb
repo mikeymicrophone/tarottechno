@@ -1,4 +1,4 @@
-class Card < ActiveRecord::Base
+class Card < ApplicationRecord
   extend CriticalPath
   belongs_to :deck
   belongs_to :suit

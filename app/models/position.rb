@@ -1,4 +1,4 @@
-class Position < ActiveRecord::Base
+class Position < ApplicationRecord
   belongs_to :spread
   
   scope :sequenced, lambda { order :ordering }
