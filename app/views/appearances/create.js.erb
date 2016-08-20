@@ -1,1 +1,2 @@
-$('#<%= dom_id(@appearance.position, :appearance_in) %>').html('<%= @appearance.card.name %>');
+var interpretation_form = '<%= escape_javascript appearance_interpretation_form @appearance %>';
+$('#<%= dom_id(@appearance.position, :appearance_in) %>').replaceWith('<%= @appearance.card.name %>' + interpretation_form);
