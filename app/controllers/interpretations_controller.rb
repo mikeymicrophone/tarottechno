@@ -32,6 +32,7 @@ class InterpretationsController < ApplicationController
     respond_to do |format|
       if @interpretation.save
         format.html { redirect_to @interpretation, notice: 'Interpretation was created.' }
+        format.js
         format.json { render :show, status: :created, location: @interpretation }
       else
         format.html { render :new }
