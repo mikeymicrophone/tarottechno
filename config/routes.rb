@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :readings
   resources :events
   devise_for :readers
+  devise_for :querents
   resources :interpretations do
     member do
       get :rewrite
