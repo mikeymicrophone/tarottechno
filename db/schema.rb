@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160821062408) do
+ActiveRecord::Schema.define(version: 20160821063308) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -83,6 +83,17 @@ ActiveRecord::Schema.define(version: 20160821062408) do
     t.text     "details"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "places", force: :cascade do |t|
+    t.integer  "line_id"
+    t.integer  "querent_id"
+    t.integer  "ordering"
+    t.boolean  "complete"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["line_id"], name: "index_places_on_line_id", using: :btree
+    t.index ["querent_id"], name: "index_places_on_querent_id", using: :btree
   end
 
   create_table "positions", force: :cascade do |t|
@@ -187,6 +198,8 @@ ActiveRecord::Schema.define(version: 20160821062408) do
   add_foreign_key "interpretations", "cards"
   add_foreign_key "lines", "events"
   add_foreign_key "lines", "readers"
+  add_foreign_key "places", "lines"
+  add_foreign_key "places", "querents"
   add_foreign_key "positions", "spreads"
   add_foreign_key "readings", "events"
   add_foreign_key "readings", "readers"

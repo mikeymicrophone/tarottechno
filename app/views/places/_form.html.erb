@@ -1,0 +1,32 @@
+<%= form_for(place) do |f| %>
+  <% if place.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(place.errors.count, "error") %> prohibited this place from being saved:</h2>
+
+      <ul>
+      <% place.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :line_id %>
+    <%= f.select :line_id, options_from_collection_for_select(Line.all, :id, :name, place.line_id), :include_blank => true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :querent_id %>
+    <%= f.select :querent_id, options_from_collection_for_select(Querent.all, :id, :moniker_or_name, place.querent_id), :include_blank => true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :complete %>
+    <%= f.check_box :complete %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

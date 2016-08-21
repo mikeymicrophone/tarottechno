@@ -17,7 +17,8 @@ module TraditionsHelper
         navigation_to_resource('readings') +
         navigation_to_resource('positions') +
         navigation_to_resource('appearances') +
-        navigation_to_resource('lines')
+        navigation_to_resource('lines') +
+        navigation_to_resource('places')
       end
     end
   end

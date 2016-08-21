@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :places
   resources :lines
   resources :appearances
   resources :positions
