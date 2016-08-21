@@ -1,4 +1,9 @@
 <%= form_for @event do |event_form| %>
-  <%= event_form.text_field :name %>
+  <%= event_form.label :name %><%= event_form.text_field :name %><br>
+  <%= event_form.label :start_time %><%= event_form.datetime_select :start_time %><br>
+  <%= event_form.label :end_time %><%= event_form.datetime_select :end_time %><br>
+  <%= event_form.label :location %><%= event_form.text_field :location %><br>
+  <%= event_form.label :facebook_url %><%= event_form.text_field :facebook_url %><br>
+  
   <%= event_form.submit %>
 <% end %>
