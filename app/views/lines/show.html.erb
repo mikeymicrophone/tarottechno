@@ -2,3 +2,10 @@
   <%= @line.reader.moniker_or_name %>'s line at 
   <%= @line.event.name %>
 </p>
+
+<% @line.places.each do |place| %>
+  <%= div_for place, :in_line do %>
+    <%= place.ordering %>)<%= place.querent.name %>
+    <%= check_box_tag place, :complete, place.complete, :id => dom_id(place, :completion_of), :'data-place_id' => place.id %>
+  <% end %>
+<% end %>
