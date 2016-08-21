@@ -35,6 +35,11 @@
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
+  
+  <div class="field">
+    <%= f.check_box :sign_mailing_list, :value => true %>
+    <%= f.label :sign_mailing_list %>
+  </div>
 
   <div class="actions">
     <%= f.submit "Sign up" %>
