@@ -30,6 +30,7 @@ class PlacesController < ApplicationController
     respond_to do |format|
       if @place.save
         format.html { redirect_to @place, notice: 'Place was successfully created.' }
+        format.js
         format.json { render :show, status: :created, location: @place }
       else
         format.html { render :new }
@@ -44,6 +45,7 @@ class PlacesController < ApplicationController
     respond_to do |format|
       if @place.update(place_params)
         format.html { redirect_to @place, notice: 'Place was successfully updated.' }
+        format.js
         format.json { render :show, status: :ok, location: @place }
       else
         format.html { render :edit }

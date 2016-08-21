@@ -3,9 +3,13 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $(document).on 'turbolinks:load', ->
-  $('.in_line_place input').click ->
-    $.ajax '/places/' + $(this).data('place_id'),
+  $('.in_line_place input').on 'change', ->
+    $.ajax
+      'url': '/places/' + $(this).data('place_id')
       'type': 'put'
+      'dataType': 'script'
       'data':
         'place':
-          'complete': $(this).val()
+          'complete': $(this).prop('checked')
+      'success': ->
+        alert('bingo')
