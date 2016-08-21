@@ -13,6 +13,14 @@ class Reader < ApplicationRecord
   end
   
   def name
-    moniker
+    moniker_or_name
+  end
+  
+  def moniker_or_name
+    if moniker.present?
+      moniker
+    else
+      "#{first_name} #{last_name}"
+    end
   end
 end
