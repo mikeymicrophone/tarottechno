@@ -5,6 +5,10 @@ class Querent < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable
+
+  def is_not_in_line line
+    line.places.where(:querent_id => id).empty?
+  end
          
   def name
     moniker_or_name
