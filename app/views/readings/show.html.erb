@@ -1,41 +1,28 @@
 <p>
-  <strong>Event:</strong>
+  <%= @reading.querent.moniker %>'s reading at
   <%= @reading.event.name %>
 </p>
 
 <p>
-  <strong>Reader:</strong>
-  <%= @reading.reader.moniker %>
-</p>
-
-<p>
-  <strong>Querent:</strong>
-  <%= @reading.querent.moniker %>
-</p>
-
-<p>
-  <strong>Deck:</strong>
-  <%= @reading.deck.try(:name) %>
-</p>
-
-<p>
-  <strong>Spread:</strong>
+  <%= @reading.reader.moniker %> used 
+  <%= @reading.deck.try(:name) %> to form 
   <%= @reading.spread.try(:name) %>
 </p>
 
-<%= simple_list_of @reading, :appearances %>
+<%= simple_list_of @reading, :appearances, :card_in_position %>
 
-<% @reading.spread.positions.each do |position| %>
+<% (@reading.spread.positions - @reading.spread.positions.filled(@reading)).each do |position| %>
   <%= div_for position, :in_current_reading do %>
     <%= position.name %> (<%= position.ordering.ordinalize %> card):
     <%= form_for Appearance.new, :remote => true, :html => {:id => dom_id(position, :appearance_in)} do |appearance_form| %>
       <%= appearance_form.select :card_id, options_from_collection_for_select(@reading.deck.cards.sequenced, :id, :name), :include_blank => true %>
+      <%= appearance_form.check_box :reversed %>
+      <%= appearance_form.label :reversed, '(reversed)' %>
       <%= appearance_form.submit "It happened!" %>
       <%= appearance_form.hidden_field :reading_id, :value => @reading.id %>
       <%= appearance_form.hidden_field :position_id, :value => position.id %>
     <% end %>
   <% end %>
 <% end %>
-
 
 <%= link_to 'Edit', edit_reading_path(@reading) %>

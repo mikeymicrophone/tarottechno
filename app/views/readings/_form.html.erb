@@ -21,7 +21,7 @@
   </div>
   <div class="field">
     <%= f.label :querent_id %><br>
-    <%= f.select :querent_id, options_from_collection_for_select(Reader.all, :id, :moniker, @reading.reader_id), :include_blank => 'Select' %>
+    <%= f.select :querent_id, options_from_collection_for_select(Querent.all, :id, :moniker, @reading.reader_id), :include_blank => 'Select' %>
   </div>
   <div class="field">
     <%= f.label :deck_id %><br>

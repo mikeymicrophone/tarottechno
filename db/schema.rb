@@ -1,4 +1,3 @@
-# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -11,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160820045449) do
+ActiveRecord::Schema.define(version: 20160821054849) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,11 +22,11 @@ ActiveRecord::Schema.define(version: 20160820045449) do
     t.text     "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.boolean  "reversed"
+    t.index ["card_id"], name: "index_appearances_on_card_id", using: :btree
+    t.index ["position_id"], name: "index_appearances_on_position_id", using: :btree
+    t.index ["reading_id"], name: "index_appearances_on_reading_id", using: :btree
   end
-
-  add_index "appearances", ["card_id"], name: "index_appearances_on_card_id", using: :btree
-  add_index "appearances", ["position_id"], name: "index_appearances_on_position_id", using: :btree
-  add_index "appearances", ["reading_id"], name: "index_appearances_on_reading_id", using: :btree
 
   create_table "cards", force: :cascade do |t|
     t.integer  "deck_id"
@@ -36,19 +35,17 @@ ActiveRecord::Schema.define(version: 20160820045449) do
     t.integer  "ordering"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["deck_id"], name: "index_cards_on_deck_id", using: :btree
+    t.index ["suit_id"], name: "index_cards_on_suit_id", using: :btree
   end
-
-  add_index "cards", ["deck_id"], name: "index_cards_on_deck_id", using: :btree
-  add_index "cards", ["suit_id"], name: "index_cards_on_suit_id", using: :btree
 
   create_table "decks", force: :cascade do |t|
     t.integer  "tradition_id"
     t.string   "name"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.index ["tradition_id"], name: "index_decks_on_tradition_id", using: :btree
   end
-
-  add_index "decks", ["tradition_id"], name: "index_decks_on_tradition_id", using: :btree
 
   create_table "events", force: :cascade do |t|
     t.string   "name"
@@ -68,10 +65,9 @@ ActiveRecord::Schema.define(version: 20160820045449) do
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
     t.integer  "appearance_id"
+    t.index ["card_id"], name: "index_interpretations_on_card_id", using: :btree
+    t.index ["reader_id"], name: "index_interpretations_on_reader_id", using: :btree
   end
-
-  add_index "interpretations", ["card_id"], name: "index_interpretations_on_card_id", using: :btree
-  add_index "interpretations", ["reader_id"], name: "index_interpretations_on_reader_id", using: :btree
 
   create_table "logistics", force: :cascade do |t|
     t.string   "name"
@@ -87,9 +83,8 @@ ActiveRecord::Schema.define(version: 20160820045449) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.integer  "ordering"
+    t.index ["spread_id"], name: "index_positions_on_spread_id", using: :btree
   end
-
-  add_index "positions", ["spread_id"], name: "index_positions_on_spread_id", using: :btree
 
   create_table "querents", force: :cascade do |t|
     t.string   "first_name"
@@ -110,11 +105,10 @@ ActiveRecord::Schema.define(version: 20160820045449) do
     t.datetime "confirmation_sent_at"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.index ["confirmation_token"], name: "index_querents_on_confirmation_token", unique: true, using: :btree
+    t.index ["email"], name: "index_querents_on_email", unique: true, using: :btree
+    t.index ["reset_password_token"], name: "index_querents_on_reset_password_token", unique: true, using: :btree
   end
-
-  add_index "querents", ["confirmation_token"], name: "index_querents_on_confirmation_token", unique: true, using: :btree
-  add_index "querents", ["email"], name: "index_querents_on_email", unique: true, using: :btree
-  add_index "querents", ["reset_password_token"], name: "index_querents_on_reset_password_token", unique: true, using: :btree
 
   create_table "readers", force: :cascade do |t|
     t.string   "moniker"
@@ -137,11 +131,10 @@ ActiveRecord::Schema.define(version: 20160820045449) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "active"
+    t.index ["confirmation_token"], name: "index_readers_on_confirmation_token", unique: true, using: :btree
+    t.index ["email"], name: "index_readers_on_email", unique: true, using: :btree
+    t.index ["reset_password_token"], name: "index_readers_on_reset_password_token", unique: true, using: :btree
   end
-
-  add_index "readers", ["confirmation_token"], name: "index_readers_on_confirmation_token", unique: true, using: :btree
-  add_index "readers", ["email"], name: "index_readers_on_email", unique: true, using: :btree
-  add_index "readers", ["reset_password_token"], name: "index_readers_on_reset_password_token", unique: true, using: :btree
 
   create_table "readings", force: :cascade do |t|
     t.integer  "event_id"
@@ -151,10 +144,9 @@ ActiveRecord::Schema.define(version: 20160820045449) do
     t.datetime "updated_at", null: false
     t.integer  "deck_id"
     t.integer  "spread_id"
+    t.index ["event_id"], name: "index_readings_on_event_id", using: :btree
+    t.index ["reader_id"], name: "index_readings_on_reader_id", using: :btree
   end
-
-  add_index "readings", ["event_id"], name: "index_readings_on_event_id", using: :btree
-  add_index "readings", ["reader_id"], name: "index_readings_on_reader_id", using: :btree
 
   create_table "spreads", force: :cascade do |t|
     t.integer  "tradition_id"
@@ -162,9 +154,8 @@ ActiveRecord::Schema.define(version: 20160820045449) do
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.string   "name"
+    t.index ["tradition_id"], name: "index_spreads_on_tradition_id", using: :btree
   end
-
-  add_index "spreads", ["tradition_id"], name: "index_spreads_on_tradition_id", using: :btree
 
   create_table "suits", force: :cascade do |t|
     t.string   "name"

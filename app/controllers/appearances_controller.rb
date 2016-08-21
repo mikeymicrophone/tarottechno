@@ -70,6 +70,6 @@ class AppearancesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def appearance_params
-      params.require(:appearance).permit(:reading_id, :card_id, :position_id, :description)
+      params.require(:appearance).permit(:reading_id, :card_id, :position_id, :description, :reversed)
     end
 end
