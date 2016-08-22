@@ -8,3 +8,7 @@
 </p>
 
 <%= simple_list_of @deck, :cards %>
+
+<%= div_for @deck, :card_adder_for do %>
+  <%= link_to 'Add Card', new_card_path(:card => {:deck_id => @deck.id}), :remote => true %>
+<% end %>

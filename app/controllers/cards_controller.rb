@@ -14,7 +14,12 @@ class CardsController < ApplicationController
 
   # GET /cards/new
   def new
-    @card = Card.new
+    @card = Card.new card_params
+    
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   # GET /cards/1/edit
