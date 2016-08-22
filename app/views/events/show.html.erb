@@ -6,6 +6,7 @@
 <%= div_for @event, :lines_at do %>
   <% @event.lines.each do |line| %>
     <%= line.reader.name %>
+    <%= pluralize(line.places.unfinished.count, 'querent') %> in line;
     <% if current_querent.try(:is_not_in_line, line) %>
       <%= link_to 'enter line', places_path(:place => {:line_id => line.id}), :method => :post, :remote => true %>
     <% end %>

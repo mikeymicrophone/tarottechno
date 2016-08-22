@@ -1,6 +1,13 @@
 <% @events.each do |event| %>
   <%= div_for event do %>
     <%= link_to event.name, event %>
+    <%= event.start_time.try :strftime, "%B %d" %>
+    <% if event.location? %>
+      at <%= event.location %>
+    <% end %>
+    <% if event.facebook_url? %>
+      <%= link_to 'fb', event.facebook_url %>
+    <% end %>
   <% end %>
 <% end %>
 <%= link_to 'Add Event', new_event_path %>
