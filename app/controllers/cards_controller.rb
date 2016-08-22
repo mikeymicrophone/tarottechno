@@ -34,6 +34,7 @@ class CardsController < ApplicationController
     respond_to do |format|
       if @card.save
         format.html { redirect_to @card, notice: 'Card was created.' }
+        format.js
         format.json { render :show, status: :created, location: @card }
       else
         format.html { render :new }
