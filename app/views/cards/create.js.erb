@@ -1,0 +1,2 @@
+$('#new_card').trigger('reset');
+$('.cards_in_deck').append('<%= escape_javascript div_for(@card) { link_to @card.name, @card } %>');
