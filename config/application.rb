@@ -13,6 +13,5 @@ module Tarottechno
     # -- all .rb files in that directory are automatically loaded.
     config.time_zone = 'Central Time (US & Canada)'
     config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
-    config.active_record.raise_in_transactional_callbacks = true
   end
 end
