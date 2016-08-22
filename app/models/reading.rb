@@ -7,6 +7,6 @@ class Reading < ApplicationRecord
   has_many :appearances
   
   def name
-    "reading from #{reader.name} at #{event.name}"
+    "#{querent.name}'s reading from #{reader.name} at #{event.name}"
   end
 end
