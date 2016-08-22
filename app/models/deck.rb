@@ -7,6 +7,7 @@ class Deck < ApplicationRecord
   has_many :readers, -> { uniq }, :through => :interpretations
   has_many :readings
   
+  scope :alphabetical, lambda { order(:name) }
   scope :regarding_tradition, lambda { |tradition| where :tradition_id => tradition }
   scope :regarding_suit, lambda { |suit| joins(:cards).where 'cards.suit_id' => suit }
 end

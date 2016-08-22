@@ -14,7 +14,8 @@ class ReadingsController < ApplicationController
 
   # GET /readings/new
   def new
-    @reading = Reading.new
+    @reading = Reading.new reading_params
+    @reading.reader ||= current_reader
   end
 
   # GET /readings/1/edit

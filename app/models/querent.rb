@@ -3,6 +3,8 @@ class Querent < ApplicationRecord
   
   attr_accessor :sign_mailing_list
   
+  scope :alphabetical, lambda { order('lower(moniker)') }
+  
   after_create :copy_to_mailing_list
   
   # Include default devise modules. Others available are:
@@ -34,6 +36,21 @@ class Querent < ApplicationRecord
       moniker
     else
       "#{first_name} #{last_name}"
+    end
+  end
+  
+  protected    
+  def send_devise_notification(notification, *args)
+    # Based on https://github.com/zapnap/resque_mailer/blob/64d2be9687e320de4295c1bd1b645f42bd547743/lib/resque_mailer.rb#L81
+    # Mailer may completely skip Resque::Mailer in certain cases - and will fail as we write custom handle in DeviseResqueMailer assuming mails are handled via resque
+    # So in those cases, don't retain original devise_mailer so things work properly
+    if ActionMailer::Base.perform_deliveries && Resque::Mailer.excluded_environments.exclude?(Rails.env.to_sym)
+      # Originally devise_mailer.send(notification, self, *args).deliver
+      # Modified to ensure devise mails are safely sent via resque
+      resource_id, resource_class = self.id, self.class.name
+      devise_mailer.send(notification, {resource_id: resource_id, resource_class: resource_class}, *args).deliver
+    else
+      super
     end
   end
 end

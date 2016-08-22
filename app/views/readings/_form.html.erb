@@ -17,15 +17,15 @@
   </div>
   <div class="field">
     <%= f.label :reader_id %><br>
-    <%= f.select :reader_id, options_from_collection_for_select(Reader.all, :id, :moniker, @reading.reader_id), :include_blank => 'Select' %>
+    <%= f.select :reader_id, options_from_collection_for_select(Reader.alphabetical, :id, :moniker, @reading.reader_id), :include_blank => 'Select' %>
   </div>
   <div class="field">
     <%= f.label :querent_id %><br>
-    <%= f.select :querent_id, options_from_collection_for_select(Querent.all, :id, :moniker, @reading.reader_id), :include_blank => 'Select' %>
+    <%= f.select :querent_id, options_from_collection_for_select(Querent.alphabetical, :id, :moniker, @reading.querent_id), :include_blank => 'Select' %>
   </div>
   <div class="field">
     <%= f.label :deck_id %><br>
-    <%= f.select :deck_id, options_from_collection_for_select(Deck.all, :id, :name, @reading.deck_id), :include_blank => 'Select' %>
+    <%= f.select :deck_id, options_from_collection_for_select(Deck.alphabetical, :id, :name, @reading.deck_id), :include_blank => 'Select' %>
   </div>
   <div class="field">
     <%= f.label :spread_id %><br>

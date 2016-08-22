@@ -7,6 +7,8 @@ class Reader < ApplicationRecord
   
   attr_accessor :sign_mailing_list
   
+  scope :alphabetical, lambda { order('lower(moniker)') }
+  
   after_create :copy_to_mailing_list
   
   devise :database_authenticatable, :registerable,

@@ -17,7 +17,7 @@
     <%= form_for Appearance.new, :remote => true, :html => {:id => dom_id(position, :appearance_in)} do |appearance_form| %>
       <%= appearance_form.select :card_id, options_from_collection_for_select(@reading.deck.cards.sequenced, :id, :name), :include_blank => true %>
       <%= appearance_form.check_box :reversed %>
-      <%= appearance_form.label :reversed, '(reversed)' %>
+      <%= appearance_form.label :reversed, '(reversed)', :class => 'reversal' %>
       <%= appearance_form.submit "It happened!" %>
       <%= appearance_form.hidden_field :reading_id, :value => @reading.id %>
       <%= appearance_form.hidden_field :position_id, :value => position.id %>
