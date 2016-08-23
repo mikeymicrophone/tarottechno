@@ -13,7 +13,13 @@ class Querent < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   def is_not_in_line line
-    line.places.where(:querent_id => id).empty?
+    line.places.unfinished.where(:querent_id => id).empty?
+  end
+  
+  def place_in_line line
+    my_place_in_line = line.places.unfinished.where(:querent_id => id).first
+    in_front_of_me = line.places.unfinished.where('ordering < ?', my_place_in_line.ordering).count
+    return in_front_of_me + 1
   end
   
   def copy_to_mailing_list

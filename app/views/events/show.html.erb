@@ -5,10 +5,23 @@
 <% end %>
 <%= div_for @event, :lines_at do %>
   <% @event.lines.each do |line| %>
-    <%= line.reader.name %>
-    <%= pluralize(line.places.unfinished.count, 'querent') %> in line;
-    <% if current_querent.try(:is_not_in_line, line) %>
-      <%= link_to 'enter line', places_path(:place => {:line_id => line.id}), :method => :post, :remote => true %>
+    <%= div_for line, :at_reading do %>
+      <%= line.reader.name %>
+      <%= pluralize(line.places.unfinished.count, 'querent') %> in
+      <% if current_reader == line.reader %>
+        <%= link_to 'line', line %>
+      <% else %>
+        line
+      <% end %>
+      <% if current_querent&.is_not_in_line(line) %>
+        <%= link_to 'enter line', places_path(:place => {:line_id => line.id}), :method => :post, :remote => true %>
+      <% elsif current_querent %>
+        (you are <%= current_querent.place_in_line(line).ordinalize %>)
+      <% end %>
     <% end %>
   <% end %>
+<% end %>
+
+<% if current_reader&.events&.exclude?(@event) %>
+  <%= link_to 'I would read here.', new_line_path(:line => {:event_id => @event.id, :reader_id => current_reader.id}) %>
 <% end %>

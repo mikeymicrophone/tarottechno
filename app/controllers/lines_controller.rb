@@ -14,7 +14,7 @@ class LinesController < ApplicationController
 
   # GET /lines/new
   def new
-    @line = Line.new
+    @line = Line.new line_params
   end
 
   # GET /lines/1/edit
@@ -28,7 +28,7 @@ class LinesController < ApplicationController
 
     respond_to do |format|
       if @line.save
-        format.html { redirect_to @line, notice: 'Line was successfully created.' }
+        format.html { redirect_to @line, notice: 'You are reading at the event and querents can start getting in line.' }
         format.json { render :show, status: :created, location: @line }
       else
         format.html { render :new }

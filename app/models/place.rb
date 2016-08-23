@@ -4,5 +4,5 @@ class Place < ApplicationRecord
   
   acts_as_list :scope => :line_id, :column => :ordering
   
-  scope :unfinished, lambda { where(:complete => false)}
+  scope :unfinished, lambda { where(:complete => nil)}
 end
