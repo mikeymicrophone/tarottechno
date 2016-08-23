@@ -29,6 +29,7 @@
 
 <%= div_for(@reading, :extra_cards_in) %>
 <br>
+<%= check_box_tag :set_to_private, true, @reading.private, :'data-reading_id' => @reading.id %><%= label_tag :set_to_private, 'Make private' %><br>
 <%= link_to 'complete reading', complete_reading_path(@reading), :method => :put %><br>
 <%= link_to 'Add a card to the reading', new_appearance_path(:appearance => {:reading_id => @reading.id}), :remote => true %>
 <br>

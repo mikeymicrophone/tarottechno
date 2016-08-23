@@ -14,7 +14,7 @@
         line
       <% end %>
       <% if current_querent&.is_not_in_line(line) %>
-        <%= link_to 'enter line', places_path(:place => {:line_id => line.id}), :method => :post, :remote => true %>
+        <%= link_to 'get in line', places_path(:place => {:line_id => line.id}), :method => :post, :remote => true %>
       <% elsif current_querent %>
         (you are <%= current_querent.place_in_line(line).ordinalize %>)
       <% end %>

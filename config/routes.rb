@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   resources :readings do
     member do
       put :complete
+      put :make_private
+      put :not_private
     end
   end
   resources :events

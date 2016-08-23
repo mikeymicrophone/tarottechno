@@ -1,10 +1,10 @@
 class ReadingsController < ApplicationController
-  before_action :set_reading, only: [:show, :edit, :update, :destroy, :complete]
+  before_action :set_reading, only: [:show, :edit, :update, :destroy, :complete, :make_private, :not_private]
 
   # GET /readings
   # GET /readings.json
   def index
-    @readings = Reading.all
+    @readings = Reading.not_private
   end
 
   # GET /readings/1
@@ -55,6 +55,16 @@ class ReadingsController < ApplicationController
   def complete
     @reading.line.places.unfinished.where(:querent_id => @reading.querent_id).first.update_attribute(:complete, true)
     redirect_to @reading.line
+  end
+  
+  def make_private
+    @reading.update_attribute :private, true
+    render :nothing => true
+  end
+  
+  def not_private
+    @reading.update_attribute :private, false
+    render :nothing => true
   end
 
   # DELETE /readings/1
