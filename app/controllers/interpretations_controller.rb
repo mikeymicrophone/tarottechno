@@ -4,7 +4,7 @@ class InterpretationsController < ApplicationController
   # GET /interpretations
   # GET /interpretations.json
   def index
-    @interpretations = Interpretation.all
+    @interpretations = Interpretation.not_private_reading
   end
 
   # GET /interpretations/1

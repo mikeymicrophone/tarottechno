@@ -15,7 +15,15 @@
   <meta name="google-site-verification" content="<%= ENV['GOOGLE_SITE_VERIFICATION_KEY'] %>" />
 </head>
 <body class="back_room">
-  <%= navigation_for_reader %>
+  <% if current_reader %>
+    <% if current_reader.email == 'mike.schwab@gmail.com' %>
+      <%= navigation_in_cards %>
+    <% else %>
+      <%= navigation_for_reader %>
+    <% end %>
+  <% elsif current_querent %>
+    <%= navigation_for_querent %>
+  <% end %>
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
   

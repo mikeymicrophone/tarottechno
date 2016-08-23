@@ -38,6 +38,19 @@ module TraditionsHelper
     end
   end
   
+  def navigation_for_querent
+    content_tag(:div, :id => 'getting_around') do
+      content_tag(:div, :id => 'this_is_the_way') do
+        'You may find these pathways useful in your work...'
+      end +
+      content_tag(:nav, :id => 'magician_navigation') do
+        navigation_to_resource('events') +
+        navigation_to_resource('readings') +
+        navigation_to_resource('interpretations')
+      end
+    end
+  end
+  
   def navigation_to_resource canopy
     content_tag :li, :id => canopy do
       link_to canopy, send("#{canopy}_path")

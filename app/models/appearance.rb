@@ -6,7 +6,7 @@ class Appearance < ApplicationRecord
   has_many :interpretations
   
   def name
-    "#{card.name} as #{position.name} during #{reading.name}"
+    "#{card.name} as #{position ? position.name : description} during #{reading.name}"
   end
   
   def card_in_position
