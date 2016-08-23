@@ -10,6 +10,9 @@ class ReadingsController < ApplicationController
   # GET /readings/1
   # GET /readings/1.json
   def show
+    if @reading.private
+      redirect_to(root_url) && return unless @reading.querent == current_querent
+    end
   end
 
   # GET /readings/new
