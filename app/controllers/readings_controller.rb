@@ -1,5 +1,5 @@
 class ReadingsController < ApplicationController
-  before_action :set_reading, only: [:show, :edit, :update, :destroy]
+  before_action :set_reading, only: [:show, :edit, :update, :destroy, :complete]
 
   # GET /readings
   # GET /readings.json
@@ -50,6 +50,11 @@ class ReadingsController < ApplicationController
         format.json { render json: @reading.errors, status: :unprocessable_entity }
       end
     end
+  end
+  
+  def complete
+    @reading.line.places.unfinished.where(:querent_id => @reading.querent_id).first.update_attribute(:complete, true)
+    redirect_to @reading.line
   end
 
   # DELETE /readings/1

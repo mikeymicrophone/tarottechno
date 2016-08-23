@@ -9,20 +9,28 @@
   <%= @reading.spread.try(:name) %>
 </p>
 
-<%= simple_list_of @reading, :appearances, :card_in_position %>
+<%= div_for @reading, :cards_appearing_in do %>
+  <%= simple_list_of @reading, :appearances, :card_in_position %>
 
-<% (@reading.spread.positions - @reading.spread.positions.filled(@reading)).each do |position| %>
-  <%= div_for position, :in_current_reading do %>
-    <%= position.name %> (<%= position.ordering.ordinalize %> card):
-    <%= form_for Appearance.new, :remote => true, :html => {:id => dom_id(position, :appearance_in)} do |appearance_form| %>
-      <%= appearance_form.select :card_id, options_from_collection_for_select(@reading.deck.cards.sequenced, :id, :name), :include_blank => true %>
-      <%= appearance_form.check_box :reversed %>
-      <%= appearance_form.label :reversed, '(reversed)', :class => 'reversal' %>
-      <%= appearance_form.submit "It happened!" %>
-      <%= appearance_form.hidden_field :reading_id, :value => @reading.id %>
-      <%= appearance_form.hidden_field :position_id, :value => position.id %>
+  <% (@reading.spread.positions - @reading.spread.positions.filled(@reading)).each do |position| %>
+    <%= div_for position, :in_current_reading do %>
+      <%= position.name %> (<%= position.ordering.ordinalize %> card):
+      <%= form_for Appearance.new, :remote => true, :html => {:id => dom_id(position, :appearance_in)} do |appearance_form| %>
+        <%= appearance_form.select :card_id, options_from_collection_for_select(@reading.deck.cards.sequenced, :id, :name), :include_blank => true %>
+        <%= appearance_form.check_box :reversed %>
+        <%= appearance_form.label :reversed, '(reversed)', :class => 'reversal' %>
+        <%= appearance_form.submit "It happened!" %>
+        <%= appearance_form.hidden_field :reading_id, :value => @reading.id %>
+        <%= appearance_form.hidden_field :position_id, :value => position.id %>
+      <% end %>
     <% end %>
   <% end %>
 <% end %>
 
-<%= link_to 'Edit', edit_reading_path(@reading) %>
+<%= div_for(@reading, :extra_cards_in) %>
+<br>
+<%= link_to 'complete reading', complete_reading_path(@reading), :method => :put %><br>
+<%= link_to 'Add a card to the reading', new_appearance_path(:appearance => {:reading_id => @reading.id}), :remote => true %>
+<br>
+
+<%= link_to 'switch deck or spread', edit_reading_path(@reading) %>

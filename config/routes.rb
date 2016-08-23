@@ -4,7 +4,11 @@ Rails.application.routes.draw do
   resources :appearances
   resources :positions
   resources :spreads
-  resources :readings
+  resources :readings do
+    member do
+      put :complete
+    end
+  end
   resources :events
   devise_for :readers
   devise_for :querents

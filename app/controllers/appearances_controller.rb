@@ -14,7 +14,12 @@ class AppearancesController < ApplicationController
 
   # GET /appearances/new
   def new
-    @appearance = Appearance.new
+    @appearance = Appearance.new appearance_params
+    
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   # GET /appearances/1/edit

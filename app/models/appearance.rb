@@ -10,6 +10,6 @@ class Appearance < ApplicationRecord
   end
   
   def card_in_position
-    "#{card.name + (reversed ? ' (reversed)' : '')} as #{position.name}"
+    "#{card.name + (reversed ? ' (reversed)' : '')} as #{position&.name || description}"
   end
 end

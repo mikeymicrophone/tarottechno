@@ -9,4 +9,8 @@ class Reading < ApplicationRecord
   def name
     "#{querent.name}'s reading from #{reader.name} at #{event.name}"
   end
+  
+  def line
+    event.lines.where(:reader_id => reader.id).first
+  end
 end
