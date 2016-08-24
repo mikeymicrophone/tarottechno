@@ -10,4 +10,6 @@
     <% end %>
   <% end %>
 <% end %>
-<%= link_to 'Add Event', new_event_path %>
+<% if current_reader&.email == 'mike.schwab@gmail.com' %>
+  <%= link_to 'Add Event', new_event_path %>
+<% end %>

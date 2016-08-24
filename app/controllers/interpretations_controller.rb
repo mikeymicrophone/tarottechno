@@ -4,7 +4,7 @@ class InterpretationsController < ApplicationController
   # GET /interpretations
   # GET /interpretations.json
   def index
-    @interpretations = Interpretation.not_private_reading
+    @interpretations = Interpretation.not_private_reading.order('created_at desc')
   end
 
   # GET /interpretations/1

@@ -4,7 +4,11 @@ class ReadingsController < ApplicationController
   # GET /readings
   # GET /readings.json
   def index
-    @readings = Reading.not_private
+    if params[:querent_id]
+      @readings = Querent.find(params[:querent_id]).readings
+    else
+      @readings = Reading.not_private
+    end
   end
 
   # GET /readings/1

@@ -10,7 +10,6 @@
       </ul>
     </div>
   <% end %>
-
   <div class="field">
     <%= f.label :event_id %><br>
     <%= f.select :event_id, options_from_collection_for_select(Event.all, :id, :name, @reading.event_id), :include_blank => 'Select' %>

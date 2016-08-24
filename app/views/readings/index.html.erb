@@ -32,4 +32,8 @@
 
 <br>
 
-<%= link_to 'New Reading', new_reading_path %>
+<% if current_reader %>
+  <%= link_to 'New Reading', new_reading_path %>
+<% elsif current_querent %>
+  <%= link_to 'My readings', querent_readings_path(current_querent) %>
+<% end %>

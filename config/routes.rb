@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   resources :events
   devise_for :readers
   devise_for :querents
+  get 'querents/:querent_id/readings' => 'readings#index', :as => 'querent_readings'
   resources :interpretations do
     member do
       get :rewrite
