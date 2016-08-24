@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
   before_action :authenticate_reader_or_querent
+  before_action :secure_the_data
   layout 'back_room'
   
   before_action :configure_permitted_parameters, if: :devise_controller?
@@ -26,6 +27,14 @@ class ApplicationController < ActionController::Base
       events_path
     elsif resource.is_a? Reader
       decks_path
+    end
+  end
+  
+  def secure_the_data
+    if action_name == 'edit' || action_name == 'update'
+      unless current_reader&.email == 'mike.schwab@gmail.com'
+        redirect_to root_url
+      end
     end
   end
 end
