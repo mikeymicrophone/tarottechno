@@ -10,7 +10,23 @@
 </p>
 
 <%= div_for @reading, :cards_appearing_in do %>
-  <%= simple_list_of @reading, :appearances, :card_in_position %>
+    <%= content_tag_for(:header, @reading, :appearances) do %>
+      ~cards that appeared~
+    <% end %>
+    <%= div_for(@reading, :appearances_in) do %>
+      <% @reading.appearances.each do |appearance| %>
+        <%= div_for(appearance) do %>
+          <%= appearance.card_in_position %>
+          <% if appearance.interpretations.present? %>
+            <% appearance.interpretations.each do |interpretation| %>
+              <%= interpretation.phrase %>
+              <br>
+              <%= interpretation.description %>
+            <% end %>
+          <% end %>
+        <% end %>
+      <% end %>
+    <% end %>
 
   <% (@reading.spread.positions - @reading.spread.positions.filled(@reading)).each do |position| %>
     <%= div_for position, :in_current_reading do %>
