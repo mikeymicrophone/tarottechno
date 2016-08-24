@@ -12,11 +12,15 @@ class Line < ApplicationRecord
     number = querent.phone
     return if querent.phone.blank?
     
-    @client = Twilio::REST::Client.new ENV['TWILIO_ID'], ENV['TWILIO_TOKEN']
-    @client.account.messages.create({
-      :from => '+14849483191',
-      :to => "+#{number}",
-      :body => 'Your reading will begin in 5. Fate isn\'t late'
-    })
+    begin
+      @client = Twilio::REST::Client.new ENV['TWILIO_ID'], ENV['TWILIO_TOKEN']
+      @client.account.messages.create({
+        :from => '+14849483191',
+        :to => "+#{number}",
+        :body => "Your reading with #{reader.name} will begin in 5. Fate isn't late"
+      })
+    rescue StandardError => error
+      Rails.logger.info "A text message failed to send: #{error.message}"
+    end
   end
 end
