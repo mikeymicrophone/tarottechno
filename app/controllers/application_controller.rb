@@ -32,6 +32,9 @@ class ApplicationController < ActionController::Base
   
   def secure_the_data
     if action_name == 'edit' || action_name == 'update'
+      if controller_name == 'places'
+        return
+      end
       unless current_reader&.email == 'mike.schwab@gmail.com'
         redirect_to root_url
       end
