@@ -24,7 +24,7 @@ class ApplicationController < ActionController::Base
   
   def after_sign_in_path_for resource
     if resource.is_a? Querent
-      events_path
+      event_path(Event.last)
     elsif resource.is_a? Reader
       decks_path
     end
