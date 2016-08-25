@@ -1,0 +1,7 @@
+<% @querents.each do |querent| %>
+  <%= div_for querent do %>
+    <%= querent.moniker %>
+    is
+    <%= querent.first_name %> <%= querent.last_name %>
+  <% end %>
+<% end %>
