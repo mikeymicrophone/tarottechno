@@ -39,7 +39,7 @@ class Querent < ApplicationRecord
 
   def moniker_or_name
     if moniker.present?
-      moniker
+      "#{moniker} (#{first_name} #{last_name})"
     else
       "#{first_name} #{last_name}"
     end
