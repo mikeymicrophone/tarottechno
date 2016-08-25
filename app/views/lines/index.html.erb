@@ -17,8 +17,17 @@
         <td><%= line.event.name %></td>
         <td><%= line.reader.name %></td>
         <td><%= link_to 'Show', line %></td>
-        <td><%= link_to 'Edit', edit_line_path(line) %></td>
-        <td><%= link_to 'Destroy', line, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+      <tr>
+        <td>
+          <% line.places.each do |place| %>
+            <%= div_for place, :in_line do %>
+              <%= place.ordering %>) <%= place.querent.name %>
+              <%= link_to 'begin reading', new_reading_path(:reading => {:querent_id => place.querent_id, :event_id => line.event_id}) unless place.complete? %>
+              <%= check_box_tag :complete, true, place.complete, :id => dom_id(place, :completion_of), :'data-place_id' => place.id %>
+            <% end %>
+          <% end %>
+        </td>
       </tr>
     <% end %>
   </tbody>
