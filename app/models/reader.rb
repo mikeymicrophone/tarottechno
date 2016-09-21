@@ -15,7 +15,7 @@ class Reader < ApplicationRecord
   after_create :copy_to_mailing_list
   
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable
+         :recoverable, :rememberable
          
   def active_for_authentication?
     super && active?
