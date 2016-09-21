@@ -10,7 +10,10 @@ class QuerentsController < ApplicationController
   def redefine
     @querent = current_querent
     
-    @querent.update_attributes querent_params
+    @querent.moniker = querent_params[:moniker]
+    @querent.avatar = querent_params[:avatar]
+    @querent.phone = querent_params[:phone]
+    @querent.save
     
     redirect_to Event.last, :notice => "That IS good, #{@querent.name}!"
   end

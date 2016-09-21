@@ -10,7 +10,10 @@ class ReadersController < ApplicationController
   def redefine
     @reader = current_reader
     
-    @reader.update_attributes reader_params
+    @reader.moniker = reader_params[:moniker]
+    @reader.avatar = reader_params[:avatar]
+    @reader.phone = reader_params[:phone]
+    @reader.save
     
     redirect_to Event.last, :notice => "That IS good, #{@reader.name}!"
   end
