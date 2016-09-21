@@ -2,21 +2,31 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.in_current_reading_position {
-  div.interpretation {
-    font-size: 0.75em;
+.cards_appearing_in_reading {
+  font-size: 0.85em;
+
+  .appearances_in_reading {
+    .appearance {
+      margin: 15px;
+    }
   }
-}
 
-label.reversal {
-  font-size: 0.5em;
-}
+  .in_current_reading_position {
+    div.interpretation {
+      font-size: 0.75em;
+    }
+  }
 
-.new_interpretation input {
-  vertical-align: top;
-}
+  label.reversal {
+    font-size: 0.5em;
+  }
 
-#interpretation_description {
-  height: 45px;
-  width: 170px;
+  .new_interpretation input {
+    vertical-align: top;
+  }
+
+  #interpretation_description {
+    height: 45px;
+    width: 170px;
+  }
 }
