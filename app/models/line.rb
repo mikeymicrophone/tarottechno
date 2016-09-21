@@ -3,6 +3,8 @@ class Line < ApplicationRecord
   belongs_to :reader, :required => true
   has_many :places
   
+  scope :randomized, lambda { order("random()") }
+  
   def name
     "#{reader.moniker_or_name} at #{event.name}"
   end

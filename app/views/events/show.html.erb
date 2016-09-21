@@ -4,8 +4,16 @@
   ~readers~
 <% end %>
 <%= div_for @event, :lines_at do %>
-  <% @event.lines.each do |line| %>
-    <%= enterable_line(line).html_safe %>
+  <% @event.lines.randomized.each do |line| %>
+    <%= div_for line, :reader_at_event do %>
+      <%= div_for line, :reader_name_on do %>
+        <%= line.reader.name %>
+      <% end %>
+  
+      <%= div_for line, :enterable do %>
+        <%= enterable_line(line).html_safe %>
+      <% end %>
+    <% end %>
   <% end %>
 <% end %>
 
