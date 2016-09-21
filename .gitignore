@@ -17,3 +17,5 @@
 /tmp
 
 config/initializers/dev_constants.rb
+
+config/initializers/aalpha_dev_constants.rb
