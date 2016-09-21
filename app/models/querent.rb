@@ -1,5 +1,6 @@
 class Querent < ApplicationRecord
   has_many :readings
+  mount_uploader :avatar, AvatarUploader
   
   attr_accessor :sign_mailing_list
   

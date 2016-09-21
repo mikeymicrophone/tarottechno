@@ -6,6 +6,7 @@ class Reader < ApplicationRecord
   has_many :traditions, -> { uniq }, :through => :decks
   has_many :lines
   has_many :events, :through => :lines
+  mount_uploader :avatar, AvatarUploader
   
   attr_accessor :sign_mailing_list
   

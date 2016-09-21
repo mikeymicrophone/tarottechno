@@ -16,6 +16,9 @@ gem 'acts_as_list'
 gem 'rails_12factor'
 gem 'record_tag_helper'
 gem 'gibbon'
+gem 'carrierwave'
+gem 'fog-aws'
+gem 'mini_magick'
 gem 'twilio-ruby'
 
 group :development, :test do

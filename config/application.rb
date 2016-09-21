@@ -14,5 +14,6 @@ module Tarottechno
     config.time_zone = 'Central Time (US & Canada)'
     config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
     config.autoload_paths << Rails.root.join('spec', 'fabricators')
+    config.autoload_paths << Rails.root.join('app', 'uploaders')
   end
 end
