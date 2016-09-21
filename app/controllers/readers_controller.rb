@@ -8,7 +8,7 @@ class ReadersController < ApplicationController
   end
   
   def redefine
-    @reader = current_reader
+    @reader = Reader.find(current_reader.id)
     
     @reader.moniker = reader_params[:moniker]
     @reader.avatar = reader_params[:avatar]
