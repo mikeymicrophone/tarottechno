@@ -30,11 +30,11 @@
   <%= yield %>
   
   <% if current_querent %>
-    <%= link_to 'I want to update my info.', revise_querent_path(current_querent) %>
+    <%= link_to 'I want to update my info.', revise_querent_path(current_querent) unless action_name == 'revise' %>
   <% end %>
   
   <% if current_reader %>
-    <%= link_to 'I want to update my info.', revise_reader_path %>
+    <%= link_to 'I want to update my info.', revise_reader_path unless action_name == 'revise' %>
   <% end %>
   
   <div id="logout">
