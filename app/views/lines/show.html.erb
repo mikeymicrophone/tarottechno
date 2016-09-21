@@ -11,7 +11,7 @@
 
 <% @line.places.each do |place| %>
   <%= div_for place, :in_line do %>
-    <%= place.ordering %>) <%= image_tag place.querent.avatar.url(:thumb) if place.querent.avatar? %> <%= place.querent.name %>
+    <%= place.ordering %>) <%= image_tag place.querent.avatar.url(:thumb) if place.querent.avatar? && place.querent.avatar_approved? %> <%= place.querent.name %>
     <%= link_to 'begin reading', new_reading_path(:reading => {:querent_id => place.querent_id, :event_id => @line.event_id}) unless place.complete? %>
     <%= check_box_tag :complete, true, place.complete, :id => dom_id(place, :completion_of), :'data-place_id' => place.id %>
   <% end %>

@@ -44,9 +44,8 @@ module TraditionsHelper
         'You may find these pathways useful in your work...'
       end +
       content_tag(:nav, :id => 'magician_navigation') do
-        navigation_to_resource('events') +
-        navigation_to_resource('readings') +
-        navigation_to_resource('interpretations')
+        link_to('lines for readings', Event.last) + ' ' +
+        link_to('my readings', querent_readings_path(current_querent))
       end
     end
   end
