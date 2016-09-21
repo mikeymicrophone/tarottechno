@@ -17,7 +17,7 @@
     <% @appearances.each do |appearance| %>
       <tr>
         <td><%= appearance.reading.name %></td>
-        <td><%= appearance.card.name %></td>
+        <td><%= appearance.card&.name %></td>
         <td><%= appearance.position&.name %></td>
         <td><%= appearance.description %></td>
         <td><%= link_to 'Show', appearance %></td>
