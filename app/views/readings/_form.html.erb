@@ -10,28 +10,40 @@
       </ul>
     </div>
   <% end %>
-  <div class="field">
-    <%= f.label :event_id %><br>
-    <%= f.select :event_id, options_from_collection_for_select(Event.all, :id, :name, @reading.event_id), :include_blank => 'Select' %>
-  </div>
-  <div class="field">
-    <%= f.label :reader_id %><br>
-    <%= f.select :reader_id, options_from_collection_for_select(Reader.alphabetical, :id, :moniker, @reading.reader_id), :include_blank => 'Select' %>
-  </div>
-  <div class="field">
-    <%= f.label :querent_id %><br>
-    <%= f.select :querent_id, options_from_collection_for_select(Querent.alphabetical, :id, :moniker, @reading.querent_id), :include_blank => 'Select' %>
-  </div>
+  <% if @reading.new_record? and @reading.event %>
+    <%= f.hidden_field :event_id %>
+  <% else %>
+    <div class="field">
+      <%= f.label :event_id %><br>
+      <%= f.select :event_id, options_from_collection_for_select(Event.all, :id, :name, @reading.event_id), :include_blank => 'Select' %>
+    </div>
+  <% end %>
+  <% if @reading.new_record? and @reading.reader %>
+    <%= f.hidden_field :reader_id %>
+  <% else %>
+    <div class="field">
+      <%= f.label :reader_id %><br>
+      <%= f.select :reader_id, options_from_collection_for_select(Reader.alphabetical, :id, :moniker, @reading.reader_id), :include_blank => 'Select' %>
+    </div>
+  <% end %>
+  <% if @reading.new_record? and @reading.querent %>
+    <%= f.hidden_field :querent_id %>
+  <% else %>
+    <div class="field">
+      <%= f.label :querent_id %><br>
+      <%= f.select :querent_id, options_from_collection_for_select(Querent.alphabetical, :id, :moniker, @reading.querent_id), :include_blank => 'Select' %>
+    </div>
+  <% end %>
   <div class="field">
     <%= f.label :deck_id %><br>
-    <%= f.select :deck_id, options_from_collection_for_select(Deck.alphabetical, :id, :name, @reading.deck_id), :include_blank => 'Select' %>
+    <%= f.select :deck_id, options_from_collection_for_select(Deck.alphabetical, :id, :name, @reading.deck_id), :include_blank => 'Select the deck used' %>
   </div>
   <div class="field">
     <%= f.label :spread_id %><br>
-    <%= f.select :spread_id, options_from_collection_for_select(Spread.all, :id, :name, @reading.spread_id), :include_blank => 'Select' %>
+    <%= f.select :spread_id, options_from_collection_for_select(Spread.all, :id, :name, @reading.spread_id), :include_blank => 'Select the spread given' %>
   </div>
   
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Ready to add notes' %>
   </div>
 <% end %>
