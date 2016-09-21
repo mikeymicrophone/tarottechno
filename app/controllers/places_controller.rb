@@ -1,5 +1,14 @@
 class PlacesController < ApplicationController
-  before_action :set_place, only: [:show, :edit, :update, :destroy]
+  before_action :set_place, only: [:notify_querent, :show, :edit, :update, :destroy]
+
+  def notify_querent
+    @place.notify_querent
+    if @place.querent.phone?
+      render :text => "texted them"
+    else
+      render :text => "no phone listed"
+    end
+  end
 
   # GET /places
   # GET /places.json

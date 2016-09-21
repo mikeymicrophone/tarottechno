@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  resources :places
+  resources :places do
+    member do
+      get :notify_querent
+    end
+  end
   resources :lines
   resources :appearances
   resources :positions
