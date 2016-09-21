@@ -16,7 +16,7 @@
 </head>
 <body class="back_room">
   <% if current_reader %>
-    <% if current_reader.email == 'mike.schwab@gmail.com' %>
+    <% if current_reader.email == ENV['EDITOR_EMAIL_ADDRESS'] %>
       <%= navigation_in_cards %>
     <% else %>
       <%= navigation_for_reader %>

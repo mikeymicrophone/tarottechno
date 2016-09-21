@@ -31,13 +31,18 @@ class ApplicationController < ActionController::Base
   end
   
   def secure_the_data
+    return if editor_present? || current_reader
     if action_name == 'edit' || action_name == 'update'
       if controller_name == 'places'
-        return if current_reader
+        return
       end
-      unless current_reader&.email == 'mike.schwab@gmail.com'
-        redirect_to root_url
-      end
+      redirect_to root_url
     end
   end
+  
+  def editor_present?
+    current_reader&.email = ENV['EDITOR_EMAIL_ADDRESS']
+  end
+  
+  helper_method :editor_present?
 end

@@ -20,6 +20,11 @@
     <%= f.label :reader_id %>
     <%= f.select :reader_id, options_from_collection_for_select(Reader.all, :id, :moniker_or_name, line.reader_id), :include_blank => true %>
   </div>
+  
+  <div class="field">
+    <%= f.label :position_in_room %>
+    <%= f.text_field :position_in_room, :width => 200 %>
+  </div>
 
   <div class="actions">
     <%= f.submit %>

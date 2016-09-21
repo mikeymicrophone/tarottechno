@@ -42,9 +42,12 @@ class PlacesController < ApplicationController
   # PATCH/PUT /places/1
   # PATCH/PUT /places/1.json
   def update
-    @place.line.notify_next_querent
+    update_success = @place.update(place_params)
+    if update_success
+      @place.line.notify_next_querent
+    end
     respond_to do |format|
-      if @place.update(place_params)
+      if update_success
         format.html { redirect_to @place, notice: 'Place was successfully updated.' }
         format.js
         format.json { render :show, status: :ok, location: @place }

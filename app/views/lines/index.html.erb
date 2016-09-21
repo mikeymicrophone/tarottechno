@@ -17,6 +17,9 @@
         <td><%= line.event.name %></td>
         <td><%= line.reader.name %></td>
         <td><%= link_to 'Show', line %></td>
+        <% if editor_present? || line.reader == current_reader %>
+          <td><%= link_to 'Edit', edit_line_path(line) %></td>
+        <% end %>
       </tr>
       <tr>
         <td>

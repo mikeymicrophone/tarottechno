@@ -2,6 +2,12 @@
   <%= @line.reader.moniker_or_name %>'s line at 
   <%= @line.event.name %>
 </p>
+<%= div_for @line, :position_in_room_of do %>
+  <%= @line.position_in_room %>
+  <% if editor_present? || current_reader == @line.reader %>
+    <%= link_to '[change]', edit_line_path(@line) %>
+  <% end %>
+<% end %>
 
 <% @line.places.each do |place| %>
   <%= div_for place, :in_line do %>
