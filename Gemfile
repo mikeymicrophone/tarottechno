@@ -20,6 +20,8 @@ gem 'carrierwave'
 gem 'fog-aws'
 gem 'mini_magick'
 gem 'twilio-ruby'
+gem 'rollbar'
+gem 'oj', '~> 2.12.14'
 
 group :development, :test do
   gem 'byebug'
