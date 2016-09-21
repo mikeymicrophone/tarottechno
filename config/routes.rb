@@ -64,6 +64,7 @@ Rails.application.routes.draw do
   end
   
   get '/querents' => 'querents#index'
+  patch '/querents/approve_avatar/:id' => 'querents#approve_avatar', :as => 'approve_avatar'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

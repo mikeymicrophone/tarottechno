@@ -3,5 +3,10 @@
     <%= querent.moniker %>
     is
     <%= querent.first_name %> <%= querent.last_name %>
+    <br>
+    <% if querent.avatar.present? && !querent.avatar_approved? %>
+      <%= image_tag querent.avatar.url(:portrait) %>
+      <%= link_to 'approve!', approve_avatar_path(querent), :method => :patch %>
+    <% end %>
   <% end %>
 <% end %>
