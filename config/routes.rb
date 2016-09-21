@@ -21,6 +21,9 @@ Rails.application.routes.draw do
   get 'querents/:querent_id/readings' => 'readings#index', :as => 'querent_readings'
   get 'querents/revise' => 'querents#revise', :as => 'revise_querent'
   patch 'querents/redefine' => 'querents#redefine', :as => 'redefine_querent'
+  
+  get 'readers/revise' => 'readers#revise', :as => 'revise_reader'
+  patch 'readers/redefine' => 'readers#redefine', :as => 'redefine_reader'
   resources :interpretations do
     member do
       get :rewrite

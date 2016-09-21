@@ -3,6 +3,18 @@ class ReadersController < ApplicationController
     @readers = Reader.all
   end
   
+  def revise
+    @reader = current_reader
+  end
+  
+  def redefine
+    @reader = current_reader
+    
+    @reader.update reader_params
+    
+    redirect_to Event.last, :notice => "That IS good, #{@reader.name}!"
+  end
+  
   def edit
     @reader = current_reader
   end
@@ -38,6 +50,6 @@ class ReadersController < ApplicationController
   private
   
   def reader_params
-    params.require(:reader).permit(:moniker)
+    params.require(:reader).permit(:moniker, :avatar, :phone)
   end
 end
