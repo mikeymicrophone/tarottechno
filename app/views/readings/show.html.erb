@@ -28,7 +28,7 @@
       <% end %>
     <% end %>
 
-  <% (@reading.spread.positions - @reading.spread.positions.filled(@reading)).each do |position| %>
+  <% (@reading.spread&.positions&.- @reading.spread&.positions&.filled(@reading))&.each do |position| %>
     <%= div_for position, :in_current_reading do %>
       <%= position.name %> (<%= position.ordering.ordinalize %> card):
       <%= form_for Appearance.new, :remote => true, :html => {:id => dom_id(position, :appearance_in)} do |appearance_form| %>

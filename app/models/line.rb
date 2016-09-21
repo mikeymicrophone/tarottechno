@@ -1,6 +1,6 @@
 class Line < ApplicationRecord
-  belongs_to :event
-  belongs_to :reader
+  belongs_to :event, :required => true
+  belongs_to :reader, :required => true
   has_many :places
   
   def name

@@ -1,0 +1,3 @@
+Fabricator(:reader) do
+  
+end

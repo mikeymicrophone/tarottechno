@@ -21,6 +21,8 @@ gem 'twilio-ruby'
 group :development, :test do
   gem 'byebug'
   gem 'rspec-rails'
+  gem 'fabrication'
+  gem 'faker'
 end
 
 group :development do
