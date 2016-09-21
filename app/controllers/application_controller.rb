@@ -33,7 +33,7 @@ class ApplicationController < ActionController::Base
   def secure_the_data
     return if editor_present? || current_reader
     if action_name == 'edit' || action_name == 'update'
-      if controller_name == 'places'
+      if ['places'].include? controller_name
         return
       end
       redirect_to root_url

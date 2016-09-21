@@ -1,0 +1,17 @@
+<%= form_for @querent, :url => redefine_querent_path do |querent_form| %>
+  <div>
+    Moniker: <%= querent_form.text_field :moniker %>
+  </div>
+  
+  <div>
+    Avatar: <%= querent_form.file_field :avatar %>
+  </div>
+  
+  <div>
+    Phone: <%= querent_form.text_field :phone %>
+  </div>
+  
+  <div>
+    <%= querent_form.submit "This is good." %>
+  </div>
+<% end %>

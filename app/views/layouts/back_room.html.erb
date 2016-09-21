@@ -29,6 +29,10 @@
   
   <%= yield %>
   
+  <% if current_querent %>
+    <%= link_to 'I want to update my info.', revise_querent_path(current_querent) %>
+  <% end %>
+  
   <div id="logout">
     <%= link_to 'I will log out.', destroy_reader_session_path, :method => :delete %>
   </div>
