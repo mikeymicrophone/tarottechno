@@ -20,13 +20,21 @@ $(document).on('turbolinks:load', function() {
   $('#getting_around').hide()
   $('#getting_out').hide()
   
-  
-  var last_line
+  var last_line;
   setInterval(function() {
     last_line = $('#line_shift .line')[0]
-    last_line.remove()
+    last_line.remove();
     $('#line_shift').append(last_line);
   }, 7777);
+  
+  var reload_now = false;
+  setInterval(function() {
+    if (reload_now == true) {
+      window.location = window.location;
+    } else {
+      reload_now = true;
+    }
+  }, 40000);
   
 });
 </script>
