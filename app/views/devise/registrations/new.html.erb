@@ -5,27 +5,27 @@
 
   <div class="field">
     <%= f.label :email %><br />
-    <%= f.email_field :email, :autofocus => true, :width => 200 %>
+    <%= f.email_field :email, :autofocus => true, :width => 300 %>
   </div>
   
   <div class="field">
     <%= f.label :first_name %><br>
-    <%= f.text_field :first_name, :width => 200 %>
+    <%= f.text_field :first_name, :width => 300 %>
   </div>
 
   <div class="field">
     <%= f.label :last_name %><br>
-    <%= f.text_field :last_name, :width => 200 %>
+    <%= f.text_field :last_name, :width => 300 %>
   </div>
   
   <div class="field">
     <%= f.label :moniker %><br>
-    <%= f.text_field :moniker, :width => 200 %>
+    <%= f.text_field :moniker, :width => 300 %>
   </div>
   
   <div class="field">
     <%= f.label :phone, 'Phone Number (no spaces or dashes necessary)' %><br>
-    <%= f.text_field :phone, :width => 200 %>
+    <%= f.text_field :phone, :width => 300 %>
   </div>
 
   <div class="field">
@@ -33,12 +33,12 @@
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %><br />
-    <%= f.password_field :password, :autocomplete => "off", :width => 200 %>
+    <%= f.password_field :password, :autocomplete => "off", :width => 300 %>
   </div>
 
   <div class="field">
     <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, :autocomplete => "off", :width => 200 %>
+    <%= f.password_field :password_confirmation, :autocomplete => "off", :width => 300 %>
   </div>
   
   <div class="field">

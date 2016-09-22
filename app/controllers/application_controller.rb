@@ -23,11 +23,11 @@ class ApplicationController < ActionController::Base
   end
   
   def after_sign_in_path_for resource
-    if resource.is_a? Querent
+    # if resource.is_a? Querent
       event_path(Event.last)
-    elsif resource.is_a? Reader
-      decks_path
-    end
+    # elsif resource.is_a? Reader
+      # decks_path
+    # end
   end
   
   def secure_the_data
