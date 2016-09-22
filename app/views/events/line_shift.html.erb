@@ -19,7 +19,12 @@ $(document).on('turbolinks:load', function() {
   $('#getting_out').hide()
   
   
-  $('#line_shift').append($('#line_shift .line')[0]);
+  var last_line
+  setInterval(function() {
+    last_line = $('#line_shift .line')[0]
+    last_line.remove()
+    $('#line_shift').append(last_line);
+  }, 7777);
   
 });
 </script>
