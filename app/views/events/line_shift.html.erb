@@ -1,0 +1,25 @@
+<div id="line_shift">
+  <% @event.lines.randomized.each do |line| %>
+    <%= div_for line do %>
+      <%= line.reader.name %><br>
+      <%= line.position_in_room %>
+      <% line.places.unfinished.ordered.each do |place| %>
+        <%= div_for place do %>
+          <%= place.ordering %>:
+          <%= place.querent&.name %>
+        <% end %>
+      <% end %>
+    <% end %>
+  <% end %>
+</div>
+
+<script>
+$(document).on('turbolinks:load', function() {
+  $('#getting_around').hide()
+  $('#getting_out').hide()
+  
+  
+  $('#line_shift').append($('#line_shift .line')[0]);
+  
+});
+</script>

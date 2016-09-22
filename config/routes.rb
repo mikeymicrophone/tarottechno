@@ -15,7 +15,11 @@ Rails.application.routes.draw do
       put :not_private
     end
   end
-  resources :events
+  resources :events do
+    member do
+      get :line_shift
+    end
+  end
   devise_for :readers
   devise_for :querents
   get 'querents/:querent_id/readings' => 'readings#index', :as => 'querent_readings'

@@ -16,7 +16,7 @@
 </head>
 <body class="back_room">
   <% if current_reader %>
-    <% if current_reader.email == ENV['EDITOR_EMAIL_ADDRESS'] %>
+    <% if editor_present? %>
       <%= navigation_in_cards %>
     <% else %>
       <%= navigation_for_reader %>
@@ -29,16 +29,18 @@
   
   <%= yield %>
   
-  <% if current_querent %>
-    <%= link_to 'I want to update my info.', revise_querent_path(current_querent) unless action_name == 'revise' %>
-  <% end %>
+  <div id="getting_out">
+    <% if current_querent %>
+      <%= link_to 'I want to update my info.', revise_querent_path(current_querent) unless action_name == 'revise' %>
+    <% end %>
   
-  <% if current_reader %>
-    <%= link_to 'I want to update my info.', revise_reader_path unless action_name == 'revise' %>
-  <% end %>
+    <% if current_reader %>
+      <%= link_to 'I want to update my info.', revise_reader_path unless action_name == 'revise' %>
+    <% end %>
   
-  <div id="logout">
-    <%= link_to 'I will log out.', destroy_reader_session_path, :method => :delete %>
+    <div id="logout">
+      <%= link_to 'I will log out.', destroy_reader_session_path, :method => :delete %>
+    </div>
   </div>
 
   <%= google_analytics %>

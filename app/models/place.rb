@@ -6,6 +6,7 @@ class Place < ApplicationRecord
   acts_as_list :scope => :line_id, :column => :ordering
   
   scope :unfinished, lambda { where(:complete => nil) }
+  scope :ordered, lambda { order(:ordering) }
   
   def notify_querent
     begin
