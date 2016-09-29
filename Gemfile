@@ -12,6 +12,8 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'devise'
+gem 'omniauth'
+gem 'omniauth-facebook'
 gem 'acts_as_list'
 gem 'rails_12factor'
 gem 'record_tag_helper'

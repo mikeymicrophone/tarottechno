@@ -21,7 +21,7 @@ Rails.application.routes.draw do
     end
   end
   devise_for :readers
-  devise_for :querents
+  devise_for :querents, :controllers => { omniauth_callbacks: 'omniauth_callbacks' }
   get 'querents/:querent_id/readings' => 'readings#index', :as => 'querent_readings'
   get 'querents/revise' => 'querents#revise', :as => 'revise_querent'
   patch 'querents/redefine' => 'querents#redefine', :as => 'redefine_querent'

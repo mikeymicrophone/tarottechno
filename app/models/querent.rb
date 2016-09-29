@@ -1,5 +1,6 @@
 class Querent < ApplicationRecord
   has_many :readings
+  has_many :identities
   mount_uploader :avatar, AvatarUploader
   
   attr_accessor :sign_mailing_list
@@ -11,7 +12,7 @@ class Querent < ApplicationRecord
   # Include default devise modules. Others available are:
   # :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable, :confirmable,
-         :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable, :omniauthable
 
   def is_not_in_line line
     line.places.unfinished.where(:querent_id => id).empty?
@@ -44,6 +45,14 @@ class Querent < ApplicationRecord
     else
       "#{first_name} #{last_name}"
     end
+  end
+
+  def facebook
+    identities.where(:provider => "facebook").first
+  end
+
+  def facebook_client
+    @facebook_client ||= Facebook.client(:access_token => facebook.accesstoken)
   end
   
   # protected

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160921212237) do
+ActiveRecord::Schema.define(version: 20160929030324) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,6 +55,22 @@ ActiveRecord::Schema.define(version: 20160921212237) do
     t.string   "facebook_url"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+  end
+
+  create_table "identities", force: :cascade do |t|
+    t.integer  "querent_id"
+    t.string   "provider"
+    t.string   "accesstoken"
+    t.string   "uid"
+    t.string   "name"
+    t.string   "email"
+    t.string   "nickname"
+    t.string   "image"
+    t.string   "phone"
+    t.string   "urls"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["querent_id"], name: "index_identities_on_querent_id", using: :btree
   end
 
   create_table "interpretations", force: :cascade do |t|
@@ -202,6 +218,7 @@ ActiveRecord::Schema.define(version: 20160921212237) do
   add_foreign_key "appearances", "readings"
   add_foreign_key "cards", "decks"
   add_foreign_key "decks", "traditions"
+  add_foreign_key "identities", "querents"
   add_foreign_key "interpretations", "cards"
   add_foreign_key "lines", "events"
   add_foreign_key "lines", "readers"

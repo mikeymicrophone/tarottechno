@@ -15,6 +15,7 @@
   <meta name="google-site-verification" content="<%= ENV['GOOGLE_SITE_VERIFICATION_KEY'] %>" />
 </head>
 <body class="back_room">
+  <%= facebook_initializer %>
   <% if current_reader %>
     <% if editor_present? %>
       <%= navigation_in_cards %>
