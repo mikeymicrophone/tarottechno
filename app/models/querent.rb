@@ -12,7 +12,7 @@ class Querent < ApplicationRecord
   # Include default devise modules. Others available are:
   # :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable, :confirmable,
-         :recoverable, :rememberable, :omniauthable
+         :recoverable, :rememberable, :omniauthable, :omniauth_providers => [:facebook]
 
   def is_not_in_line line
     line.places.unfinished.where(:querent_id => id).empty?
