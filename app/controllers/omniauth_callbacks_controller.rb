@@ -4,14 +4,15 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
     @querent = @identity.querent || current_querent
     if @querent.nil?
-      @querent = Querent.create(:email => @identity.email)
+      @querent = Querent.where(:email => @identity.email).take
+      @querent ||= Querent.create(:email => @identity.email)
       @identity.update_attribute(:querent_id, @querent.id)
     end
 
     if @querent.persisted?
       @identity.update_attribute(:querent_id, @querent.id)
       sign_in_and_redirect @querent, event: :authentication
-      set_flash_message(:notice, :success, kind: provider.capitalize) if is_navigational_format?
+      set_flash_message(:notice, :success, kind: 'Facebook') if is_navigational_format?
     else
       session["devise.facebook_data"] = env["omniauth.auth"]
       redirect_to new_querent_registration_url
