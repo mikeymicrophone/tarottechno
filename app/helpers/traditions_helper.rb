@@ -2,7 +2,7 @@ module TraditionsHelper
   def navigation_in_cards
     content_tag(:div, :id => 'getting_around') do
       content_tag(:div, :id => 'this_is_the_way') do
-        'You may find these pathways useful in your work...'
+        'You may find these pathways useful'
       end +
       content_tag(:nav, :id => 'magician_navigation') do
         navigation_to_resource('traditions') +
@@ -26,7 +26,7 @@ module TraditionsHelper
   def navigation_for_reader
     content_tag(:div, :id => 'getting_around') do
       content_tag(:div, :id => 'this_is_the_way') do
-        'You may find these pathways useful in your work...'
+        'You may find these pathways useful'
       end +
       content_tag(:nav, :id => 'magician_navigation') do
         navigation_to_resource('decks') +
@@ -41,7 +41,7 @@ module TraditionsHelper
   def navigation_for_querent
     content_tag(:div, :id => 'getting_around') do
       content_tag(:div, :id => 'this_is_the_way') do
-        'You may find these pathways useful in your work...'
+        'You may find these pathways useful'
       end +
       content_tag(:nav, :id => 'magician_navigation') do
         link_to('lines for readings', Event.last) + ' ' +

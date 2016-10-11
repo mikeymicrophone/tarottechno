@@ -5,7 +5,9 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
     @querent = @identity.querent || current_querent
     if @querent.nil?
       @querent = Querent.where(:email => @identity.email).take
-      @querent ||= Querent.create(:email => @identity.email)
+      unless @querent
+        @querent = Querent.create(:email => @identity.email, :first_name => @identity.name.split.first, :last_name => @identity.name.split.last)
+      end
       @identity.update_attribute(:querent_id, @querent.id)
     end
 

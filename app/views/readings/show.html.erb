@@ -1,10 +1,10 @@
 <p>
-  <%= @reading.querent.moniker %>'s reading at
+  <%= @reading.querent.name %>'s reading at
   <%= @reading.event.name %>
 </p>
 
 <p>
-  <%= @reading.reader.moniker %> used 
+  <%= @reading.reader.name %> used 
   <%= @reading.deck.try(:name) %> to form 
   <%= @reading.spread.try(:name) %>
 </p>
