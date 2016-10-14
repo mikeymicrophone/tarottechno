@@ -19,5 +19,5 @@
 <% end %>
 
 <% if current_reader&.events&.exclude?(@event) %>
-  <%= link_to 'I would read here.', new_line_path(:line => {:event_id => @event.id, :reader_id => current_reader.id}) %>
+  <%= link_to 'I am reading here.', new_line_path(:line => {:event_id => @event.id, :reader_id => current_reader.id}) %>
 <% end %>

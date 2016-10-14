@@ -30,15 +30,17 @@
   
   <%= yield %>
   
-  <div id="getting_out">
+  <div id="personal_detail_updater">
     <% if current_querent %>
       <%= link_to 'I want to update my info.', revise_querent_path(current_querent) unless action_name == 'revise' %>
     <% end %>
-  
+
     <% if current_reader %>
       <%= link_to 'I want to update my info.', revise_reader_path unless action_name == 'revise' %>
     <% end %>
+  </div>
   
+  <div id="getting_out">
     <div id="logout">
       <%= link_to 'I will log out.', destroy_reader_session_path, :method => :delete %>
     </div>
