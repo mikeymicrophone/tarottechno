@@ -10,7 +10,7 @@
         <%= image_tag line.reader.avatar.url(:thumb) if line.reader.avatar? %>
         <%= line.reader.name %>
       <% end %>
-  
+      <%= line.position_in_room %>
       <%= div_for line, :enterable do %>
         <%= enterable_line(line).html_safe %>
       <% end %>
