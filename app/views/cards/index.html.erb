@@ -6,6 +6,7 @@
       <th>Deck</th>
       <th>Name</th>
       <th>Suit</th>
+      <th>Interpretations</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -16,6 +17,7 @@
         <td><%= card.deck.try(:name) %></td>
         <td><%= card.name %></td>
         <td><%= card.suit.try(:name) %></td>
+        <td><%= plural_nest card, 'interpretation' %></td>
         <td><%= link_to 'inspect->/', card %></td>
         <td><%= link_to 'interfere', edit_card_path(card) %></td>
       </tr>

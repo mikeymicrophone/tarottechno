@@ -4,7 +4,7 @@ class InterpretationsController < ApplicationController
   # GET /interpretations
   # GET /interpretations.json
   def index
-    @interpretations = Interpretation.order('created_at desc')
+    @interpretations = Interpretation.select_with_criteria(params, :suit, :card)
   end
 
   # GET /interpretations/1

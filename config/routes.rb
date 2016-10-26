@@ -42,7 +42,9 @@ Rails.application.routes.draw do
       get :card_names
     end
   end
-  resources :cards
+  resources :cards do
+    resources :interpretations
+  end
   resources :decks do
     resources :cards
     resources :suits
