@@ -24,6 +24,7 @@ gem 'mini_magick'
 gem 'twilio-ruby'
 gem 'rollbar'
 gem 'oj', '~> 2.12.14'
+gem 'redcarpet'
 
 group :development, :test do
   gem 'byebug'

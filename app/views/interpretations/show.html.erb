@@ -10,7 +10,7 @@
 
 <p>
   <strong>Description:</strong>
-  <%= @interpretation.description %>
+  <%= markdowner.render(@interpretation.description).html_safe %>
 </p>
 
 <p>

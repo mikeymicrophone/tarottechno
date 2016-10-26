@@ -17,6 +17,10 @@ module ApplicationHelper
     end
   end
   
+  def markdowner
+    @renderer ||= Redcarpet::Markdown.new(Redcarpet::Render::HTML)
+  end
+  
   def facebook_initializer
     "<div id='fb-root'></div>
     <script>

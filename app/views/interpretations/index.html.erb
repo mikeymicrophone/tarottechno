@@ -15,7 +15,7 @@
       <tr>
         <td><%= interpretation.card.name %></td>
         <td><%= interpretation.phrase %></td>
-        <td><%= interpretation.description %></td>
+        <td><%= markdowner.render(interpretation.description).html_safe %></td>
         <td><%= interpretation.appearance.try(:name) %></td>
         <td><%= link_to 'inspect->/', interpretation %></td>
         <td><%= link_to 're-write', rewrite_interpretation_path(interpretation) %></td>
