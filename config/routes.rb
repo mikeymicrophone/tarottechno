@@ -67,6 +67,7 @@ Rails.application.routes.draw do
       put :activate
       put :deactivate
     end
+    resources :interpretations
   end
   
   get '/querents' => 'querents#index'

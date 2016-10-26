@@ -7,6 +7,7 @@ class Interpretation < ApplicationRecord
   
   scope :regarding_suit, lambda { |suit| joins(:card).where 'cards.suit_id' => suit }
   scope :regarding_card, lambda { |card| where :card_id => card }
+  scope :regarding_reader, lambda { |reader| where :reader_id => reader }
   scope :private_reading, lambda { joins(:reading).where('readings.private' => true) }
   scope :not_private_reading, lambda { joins(:reading).where('readings.private' => false) }
   

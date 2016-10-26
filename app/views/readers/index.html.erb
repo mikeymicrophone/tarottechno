@@ -6,6 +6,7 @@
     <% else %>
       <%= link_to 'activate', activate_reader_path(reader), :method => :put %>
     <% end %>
+    <%= plural_nest reader, 'interpretation' %>
   <% end %>
 <% end %>
 

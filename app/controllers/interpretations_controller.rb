@@ -4,7 +4,7 @@ class InterpretationsController < ApplicationController
   # GET /interpretations
   # GET /interpretations.json
   def index
-    @interpretations = Interpretation.select_with_criteria(params, :suit, :card)
+    @interpretations = Interpretation.select_with_criteria(params, :suit, :card, :reader)
   end
 
   # GET /interpretations/1
