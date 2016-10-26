@@ -6,6 +6,8 @@
       <th>Card</th>
       <th>Phrase</th>
       <th>Description</th>
+      <th>Reading</th>
+      <th>Reader</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -17,6 +19,7 @@
         <td><%= interpretation.phrase %></td>
         <td><%= markdowner.render(interpretation.description).html_safe %></td>
         <td><%= interpretation.appearance.try(:name) %></td>
+        <td><%= interpretation.reader.name %></td>
         <td><%= link_to 'inspect->/', interpretation %></td>
         <td><%= link_to 're-write', rewrite_interpretation_path(interpretation) %></td>
       </tr>
