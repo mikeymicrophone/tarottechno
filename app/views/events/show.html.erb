@@ -7,7 +7,7 @@
   <% @event.lines.randomized.each do |line| %>
     <%= div_for line, :reader_at_event do %>
       <%= div_for line, :reader_name_on do %>
-        <%= image_tag line.reader.avatar.url(:thumb) if line.reader.avatar? %>
+        <%= image_tag line.reader.avatar.url(:thumb), :alt => nil if line.reader.avatar? %>
         <%= line.reader.name %>
       <% end %>
       <%= line.position_in_room %>
