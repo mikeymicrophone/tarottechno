@@ -44,8 +44,8 @@ module TraditionsHelper
         'You may find these pathways useful'
       end +
       content_tag(:nav, :id => 'magician_navigation') do
-        link_to('lines for readings', Event.last) + ' ' +
-        link_to('my readings', querent_readings_path(current_querent))
+        link_to('See queues, get a reading', Event.last) + '&nbsp;&nbsp;&nbsp;&nbsp;'.html_safe +
+        link_to('Review my readings', querent_readings_path(current_querent))
       end
     end
   end

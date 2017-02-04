@@ -37,8 +37,27 @@ body {
   }
 }
 
+#tour_of_two {
+  
+  .date_of_tour {
+    display: inline-block;
+    width: 100px;
+  }
+  
+  .venue_of_tour {
+    display: inline-block;
+    width: 350px;
+  }
+}
+
+p.guildlines_intro {
+  margin: 10%;
+}
+
 ul.guildlines {
+  margin: 0 12%;
+  
   li {
-    padding-bottom: 14px;
+    padding-bottom: 18px;
   }
 }

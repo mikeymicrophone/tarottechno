@@ -53,5 +53,9 @@ module ApplicationHelper
       ga('send', 'pageview');
     </script>".html_safe
   end
+  
+  def clearboth
+    content_tag :div, nil, :style => 'clear: both;'
+  end
 
 end

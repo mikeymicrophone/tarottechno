@@ -7,11 +7,17 @@
 
   .appearances_in_reading {
     .appearance {
-      margin: 15px;
+      margin: 25px;
+      
+      div.interpretation {
+        font-size: 0.84em;
+      }
     }
   }
 
   .in_current_reading_position {
+    padding: 15px;
+    
     div.interpretation {
       font-size: 0.75em;
     }
@@ -23,6 +29,7 @@
 
   .new_interpretation input {
     vertical-align: top;
+    padding: 3px;
   }
 
   #interpretation_description {

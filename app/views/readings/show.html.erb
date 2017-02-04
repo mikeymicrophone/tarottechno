@@ -19,9 +19,11 @@
           <%= appearance.card_in_position %>
           <% if appearance.interpretations.present? %>
             <% appearance.interpretations.each do |interpretation| %>
-              <%= interpretation.phrase %>
-              <br>
-              <%= interpretation.description %>
+              <%= div_for interpretation do %>
+                <%= interpretation.phrase %>
+                <br>
+                <%= interpretation.description %>
+              <% end %>
             <% end %>
           <% end %>
         <% end %>
@@ -35,7 +37,7 @@
         <%= appearance_form.select :card_id, options_from_collection_for_select(@reading.deck.cards.sequenced, :id, :name), :include_blank => true %>
         <%= appearance_form.check_box :reversed %>
         <%= appearance_form.label :reversed, '(reversed)', :class => 'reversal' %>
-        <%= appearance_form.submit "It happened!" %>
+        <%= appearance_form.submit "enter card" %>
         <%= appearance_form.hidden_field :reading_id, :value => @reading.id %>
         <%= appearance_form.hidden_field :position_id, :value => position.id %>
       <% end %>

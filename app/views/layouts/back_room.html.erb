@@ -6,6 +6,7 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   <link href='https://fonts.googleapis.com/css?family=Fugaz+One|Audiowide|Ceviche+One|Fredericka+the+Great|Life+Savers:700|Rye|Paprika|Sarina|New+Rocker|Milonga|MedievalSharp|Pirata+One|Akronim|Astloch:700|Faster+One|Metal+Mania' rel='stylesheet' type='text/css'>
+  <link href="https://fonts.googleapis.com/css?family=Aclonica|Acme|Aladin|Amatic+SC|Baumans|Berkshire+Swash|Black+Ops+One|Bungee+Shade|Cabin+Sketch|Cookie|Dancing+Script|Expletus+Sans|Fondamento|Fontdiner+Swanky|Freckle+Face|IM+Fell+English+SC|Iceland|Kanit|Kumar+One|Lobster|Megrim|Monoton|Montez|Orbitron|Playfair+Display+SC|Poiret+One|Quantico|Righteous|Stardos+Stencil|UnifrakturMaguntia|VT323|Vast+Shadow|Yeseva+One" rel="stylesheet">
   <% @font = ['Fugaz One', 'Audiowide', 'Ceviche One', 'Fredericka the Great','Life Savers', 'Rye', 'Paprika', 'New Rocker', 'Milonga', 'MedievalSharp', 'Pirata One', 'Akronim', 'Astloch', 'Faster One', 'Metal Mania'].sample %>
   <style>
     body {
@@ -30,6 +31,7 @@
   
   <%= yield %>
   
+  <%= clearboth %>
   <div id="personal_detail_updater">
     <% if current_querent %>
       <%= link_to 'I want to update my info.', revise_querent_path(current_querent) unless action_name == 'revise' %>
